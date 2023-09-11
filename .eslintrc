@@ -1,0 +1,9 @@
+{
+    "root": true,
+    "extends": [
+        "@coldhands/eslint-config"
+    ],
+    "rules": {
+        "vue/html-self-closing": "off"
+    }
+}
