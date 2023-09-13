@@ -7,6 +7,8 @@ type NuxtConfigExtended = NuxtConfig & {
 export default defineNuxtConfig({
     devtools: { enabled: true },
     modules: ['@nuxtjs/tailwindcss'],
-    tailwindcss: {},
-    sass: ['~/assets/styles/main.sass']
+    tailwindcss: {
+        cssPath: '~/assets/styles/tailwind.css'
+    },
+    css: ['~/assets/styles/tailwind.css']
 } as NuxtConfigExtended)

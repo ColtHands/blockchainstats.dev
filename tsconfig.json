@@ -1,8 +1,5 @@
 {
     "compilerOptions": {
     },
-    "include": [
-        "./global.d.ts",
-    ],
     "extends": "./.nuxt/tsconfig.json"
 }
