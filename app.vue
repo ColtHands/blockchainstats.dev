@@ -32,7 +32,7 @@ html, body {
     width: 100%;
     height: 100%;
     font-family: 'Montserrat', sans-serif;
-    color: var(--color-dark);
+    color: var(--color-light);
     font-size: 16px;
 }
 </style>
