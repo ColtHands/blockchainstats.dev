@@ -1,8 +1,6 @@
 <template>
-    <NuxtLayout>
-        <UiHeader />
-        <NuxtPage />
-    </NuxtLayout>
+    <UiHeader />
+    <NuxtPage />
 </template>
 
 <script lang="ts">
