@@ -10,5 +10,15 @@ export default defineNuxtConfig({
     tailwindcss: {
         cssPath: '~/assets/styles/tailwind.css'
     },
-    css: ['~/assets/styles/tailwind.css']
+    css: ['~/assets/styles/tailwind.css'],
+    build: {
+        postcss: {
+            postcssOptions: {
+                plugins: {
+                    tailwindcss: {},
+                    autoprefixer: {}
+                }
+            }
+        }
+    }
 } as NuxtConfigExtended)
