@@ -11,6 +11,11 @@ export default defineNuxtConfig({
         cssPath: '~/assets/styles/tailwind.css'
     },
     css: ['~/assets/styles/tailwind.css'],
+    runtimeConfig: {
+        public: {
+            apiUrl: ''
+        }
+    },
     build: {
         postcss: {
             postcssOptions: {

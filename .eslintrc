@@ -3,6 +3,9 @@
     "extends": [
         "@coldhands/eslint-config"
     ],
+    "globals": {
+        "useApi": "readonly"
+    },
     "rules": {
         "vue/html-self-closing": "off"
     }
