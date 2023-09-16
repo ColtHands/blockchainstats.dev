@@ -1,6 +1,5 @@
 <template>
-    <main>
+    <main class="sm:container sm:mx-auto px-4 py-6">
         <slot />
-        main layout
     </main>
 </template>
