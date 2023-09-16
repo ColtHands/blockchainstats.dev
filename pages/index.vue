@@ -13,5 +13,6 @@
 </template>
 
 <script lang="ts" setup>
-console.log('api', useApi())
+const repositories = await useApi().getRepositories()
+
 </script>
