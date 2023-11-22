@@ -24,7 +24,7 @@ useHead({
 
 <style lang="css">
 html, body {
-    background: var(--bgc);
+    background: #030712;
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
