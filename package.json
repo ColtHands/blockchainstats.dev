@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@coldhands/eslint-config": "^2.1.10",
+    "@nuxt/ui": "^2.11.0",
     "autoprefixer": "^10.4.15",
     "eslint": "^8.49.0",
     "postcss": "^8.4.29",

@@ -9,7 +9,13 @@ export default {
         './nuxt.config.{js,ts}'
     ],
     theme: {
-        extend: {}
+        extend: {
+            colors: {
+                emerald: {
+                    990: '#011e16'
+                }
+            }
+        }
     },
     plugins: []
 } satisfies Config

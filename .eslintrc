@@ -4,7 +4,9 @@
         "@coldhands/eslint-config"
     ],
     "globals": {
-        "useApi": "readonly"
+        "useApi": "readonly",
+        "toRefs": "readonly",
+        "ref": "readonly"
     },
     "rules": {
         "vue/html-self-closing": "off"
