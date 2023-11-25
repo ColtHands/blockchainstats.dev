@@ -4,12 +4,13 @@ export default function useApi() {
     const port = 3000
     const baseUrl = `${protocol}://${rawUrl}:${port}`
 
-    const getRepositories = (includeCoinData?: boolean) => {
+    const getRepositories = (includeCoinData?: boolean, limit: number = 10) => {
         const url = `${baseUrl}/get-repositories`
 
         return $fetch(url, {
             query: {
-                includeCoinData
+                includeCoinData,
+                limit
             }
         })
     }

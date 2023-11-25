@@ -1,0 +1,3 @@
+<template>
+    [repository].vue
+</template>

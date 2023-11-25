@@ -1,5 +1,5 @@
 <template>
-    <UiHeader />
+    <Header />
     <NuxtPage />
 </template>
 
@@ -15,7 +15,7 @@ useHead({
     ],
     link: [
         {
-            href: 'https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap',
+            href: 'https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,1000,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap',
             rel: 'stylesheet'
         }
     ],
@@ -29,15 +29,14 @@ useHead({
 })
 </script>
 
-<style lang="css">
-html, body {
-    background: #030712;
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 100%;
-    height: 100%;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--color-light);
-    font-size: 16px;
-}
+<style lang="sass">
+html, body
+    @apply bg-slate-900
+    background-repeat: no-repeat
+    background-size: contain
+    width: 100%
+    height: 100%
+    font-family: 'Montserrat', sans-serif
+    color: var(--color-light)
+    font-size: 16px
 </style>

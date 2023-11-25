@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-    --bgc: linear-gradient(225deg, #082f49 0%, #083344 25%, #052e16 100%);
     --color-dark: rgb(148, 163, 184);
     --color-light: rgb(241, 245, 249);
 }
