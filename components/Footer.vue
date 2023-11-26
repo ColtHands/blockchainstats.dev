@@ -1,6 +1,6 @@
 <template>
-    <footer class="border-t border-cyan-950 py-5">
-        <div class="mx-auto grid grid-cols-3 items-center text-center w-full sm:w md:w-3/3 lg:w-2/4 xl:w-3/5">
+    <footer class="border-t border-cyan-950">
+        <div class="mx-auto py-5 grid grid-cols-3 items-center text-center w-full sm:w md:w-3/3 lg:w-2/4 xl:w-3/5">
             <NuxtLinkExtended to="/">
                 <i class="fa-solid fa-cube text-green-400 text-5xl"></i>
             </NuxtLinkExtended>
@@ -16,6 +16,15 @@
                 <NuxtLinkExtended to="github.com" class="text-2xl"><i class="fa-brands fa-github"></i></NuxtLinkExtended>
                 <NuxtLinkExtended to="twitter.com" class="text-2xl"><i class="fa-brands fa-x-twitter"></i></NuxtLinkExtended>
             </div>
+        </div>
+        <div class="border-t border-cyan-950 py-2 text-center text-gray-500 text-sm">
+            Built by Aleksei Karpenko
+            •
+            <NuxtLink to="https://colthands.dev" class="text-green-400">colthands.dev</NuxtLink>
+            •
+            <NuxtLink to="https://www.linkedin.com/in/aleksey-karpenko/" target="_blank">
+                <i class="fa-brands fa-linkedin"></i>
+            </NuxtLink>
         </div>
     </footer>
 </template>
