@@ -41,6 +41,7 @@ type Props = {
 }
 
 const props = defineProps<Props>()
+
 const stars = computed(() => addPlusMinus(props.stars))
 const forks = computed(() => addPlusMinus(props.forks))
 const issues = computed(() => addPlusMinus(props.openIssues))

@@ -6,17 +6,18 @@
 * [x] Add fontawesome
 * [x] Add NuxtUi
 * [x] Add Description
-* [ ] Project Tile should take prop-by-prop instead of just repositories
+* [x] Project Tile should take prop-by-prop instead of just repositories
 * [ ] Add sort by stars, issues, forks
 * [ ] Add proxy for api requests
-* [ ] Add those requests as useNuxtData (or useAsyncData) idk now
-* [ ] Add one handler for `+` and `-` signs for `forks`, `stars` and `issues`
+* [x] Add those requests as useNuxtData (or useAsyncData) idk now
+* [x] Add one handler for `+` and `-` signs for `forks`, `stars` and `issues`
 * [ ] Add projects page
 * [ ] Add about page
 * [ ] Add tile variants
-  * [ ] Project
+  * [x] Project
   * [ ] Small
   * [ ] Extended
+* [ ] Slap in tracker, preferable posthog
 
 ## Commit tags
 
