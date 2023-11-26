@@ -1,6 +1,9 @@
 import type { Config } from 'tailwindcss'
 
 export default {
+    safelist: [
+        'text-green-400'
+    ],
     content: [
         './components/**/*.{js,vue,ts}',
         './layouts/**/*.vue',
