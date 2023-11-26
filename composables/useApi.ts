@@ -7,13 +7,16 @@ export default function useApi() {
     const getRepositories = (includeCoinData?: boolean, limit: number = 10) => {
         const url = `${baseUrl}/get-repositories`
 
-        return $fetch(url, {
+        const { data } = useFetch(url, {
             query: {
                 includeCoinData,
                 limit
             }
         })
+
+        return data
     }
+
     return {
         getRepositories
     }

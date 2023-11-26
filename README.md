@@ -7,11 +7,16 @@
 * [x] Add NuxtUi
 * [x] Add Description
 * [ ] Project Tile should take prop-by-prop instead of just repositories
-* [ ] Add Proper Home link
 * [ ] Add sort by stars, issues, forks
 * [ ] Add proxy for api requests
 * [ ] Add those requests as useNuxtData (or useAsyncData) idk now
 * [ ] Add one handler for `+` and `-` signs for `forks`, `stars` and `issues`
+* [ ] Add projects page
+* [ ] Add about page
+* [ ] Add tile variants
+  * [ ] Project
+  * [ ] Small
+  * [ ] Extended
 
 ## Commit tags
 

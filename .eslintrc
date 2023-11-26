@@ -6,6 +6,8 @@
     "globals": {
         "useApi": "readonly",
         "toRefs": "readonly",
+        "addPlusMinus": "readonly",
+        "computed": "readonly",
         "ref": "readonly"
     },
     "rules": {

@@ -1,0 +1,3 @@
+<template>
+    small tile
+</template>

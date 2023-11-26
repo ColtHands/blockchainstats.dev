@@ -8,11 +8,26 @@
             This website display top blockchain <NuxtLink to="https://github.com/" target="_blank">GitHub</NuxtLink> projects and its statistics
         </h2>
         <div class="flex justify-center flex-col mt-10 gap-0 w-full sm:w md:w-3/3 lg:w-2/4 xl:w-3/5 mx-auto backdrop-blur border border-green-900 rounded-md">
-            <Tile class="rounded-t-md">Sort stuff goes here</Tile>
-            <ProjectTile
+            <TileWrap class="rounded-t-md justify-between">
+                <div>
+                    Top projects by stars this week
+                </div>
+                <!-- <div>
+                    Sort stuff goes here
+                </div> -->
+            </TileWrap>
+            <Tile
                 v-for="repository in repositories"
                 :key="repository.id"
-                :repository="repository"
+                :avatar-url="repository.avatar_url"
+                :name="repository.repository"
+                :owner="repository.owner"
+                :url="repository._id"
+                :description="repository.coinId.description['en']"
+                :stars="repository.growth.week.stars"
+                :forks="repository.growth.week.forks"
+                :open-issues="repository.growth.week.open_issues"
+                variant="project"
                 class="first:rounded-t-md last:rounded-b-sm"
             />
         </div>

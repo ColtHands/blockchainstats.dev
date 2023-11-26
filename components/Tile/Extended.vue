@@ -1,0 +1,3 @@
+<template>
+    extended tile
+</template>
