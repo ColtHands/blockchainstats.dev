@@ -18,6 +18,7 @@
   * [ ] Small
   * [ ] Extended
 * [ ] Slap in tracker, preferable posthog
+* [ ] Fix minor bugs
 
 ## Commit tags
 

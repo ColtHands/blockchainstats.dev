@@ -12,9 +12,17 @@
                 <div>
                     Top projects by stars this week
                 </div>
-                <!-- <div>
-                    Sort stuff goes here
-                </div> -->
+                <USelect
+                    v-model="selectedSort"
+                    placeholder="Sort by"
+                    :loading="false"
+                    :options="sortByOptions"
+                    class="w-32"
+                >
+                    <template #trailing>
+                        <UIcon name="i-heroicons-arrows-up-down-20-solid" />
+                    </template>
+                </USelect>
             </TileWrap>
             <Tile
                 v-for="repository in repositories"
@@ -34,14 +42,20 @@
     </NuxtLayout>
 </template>
 
-<script lang="ts">
-export default {
-    async setup() {
-        const repositories = await useApi().getRepositories(true) as any
+<script lang="ts" setup>
+const sortByOptions = ['Stars', 'Forks', 'Issues']
+const selectedSort = ref('')
 
-        return {
-            repositories
-        }
-    }
+const repositories: Ref<Array<any>> = ref([])
+
+// FIXME This happens in client, need to happen in ssr 
+const fetchRepos = async () => {
+    const repos = await useApi().getRepositories(true) as any
+
+    repositories.value = repos.value ? repos.value : []
 }
+
+await fetchRepos()
+
+watch(selectedSort, fetchRepos)
 </script>
