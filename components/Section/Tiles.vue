@@ -6,11 +6,22 @@
             </div>
             <div class="flex gap-2">
                 <USelect
+                    v-model="selectedTimeFrame"
+                    placeholder="Time frame"
+                    :loading="false"
+                    :options="['week', 'moth']"
+                    class="w-30"
+                >
+                    <template #trailing>
+                        <UIcon name="i-heroicons-calendar" />
+                    </template>
+                </USelect>
+                <USelect
                     v-model="selectedSortType"
                     placeholder="Sort by"
                     :loading="false"
-                    :options="['Stars', 'Forks', 'Issues']"
-                    class="w-24"
+                    :options="['stars', 'forks', 'issues']"
+                    class="w-24 capitalize"
                 >
                     <template #trailing>
                         <UIcon name="i-heroicons-arrows-up-down-20-solid" />
@@ -24,7 +35,7 @@
                     class="w-18"
                 >
                     <template #trailing>
-                        <UIcon name="i-heroicons-arrows-up-down-20-solid" />
+                        <UIcon name="i-heroicons-chevron-down" />
                     </template>
                 </USelect>
             </div>
@@ -51,6 +62,7 @@
 <script lang="ts" setup>
 const selectedSortType = ref('')
 const selectedLimit = ref('')
+const selectedTimeFrame = ref('')
 
 const repositories: Ref<Array<any>> = ref([])
 
@@ -59,14 +71,21 @@ const repositories: Ref<Array<any>> = ref([])
  * To avoid content mismatch ClientOnly component had to be used
  * FIXME Fix this so first render happens in ssr mode, maybe, should it?
  */
-const fetchRepos = async () => {
-    const repos = await useApi().getRepositories(true, parseInt(selectedLimit.value)) as any
+const fetchRepos = async (passedVal) => {
+    const {
+        type,
+        limit,
+        timeFrame
+    } = passedVal ?? {}
+
+    const repos = await useApi().getRepositories(true, parseInt(unref(limit)), unref(type), unref(timeFrame)) as any
 
     repositories.value = unref(repos)
 }
 
 await fetchRepos()
 
-watch(selectedSortType, fetchRepos)
-watch(selectedLimit, fetchRepos)
+watch(selectedSortType, type => fetchRepos({ type }))
+watch(selectedLimit, limit => fetchRepos({ limit }))
+watch(selectedTimeFrame, timeFrame => fetchRepos({ timeFrame }))
 </script>

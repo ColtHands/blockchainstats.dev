@@ -13,6 +13,7 @@
 * [x] Add one handler for `+` and `-` signs for `forks`, `stars` and `issues`
 * [ ] Add projects page
 * [ ] Add about page
+* [ ] Add UI skeleton loading to tiles
 * Add tile variants
   * [x] Project
   * [ ] Small
