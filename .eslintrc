@@ -9,6 +9,7 @@
         "addPlusMinus": "readonly",
         "Ref": "readonly",
         "watch": "readonly",
+        "unref": "readonly",
         "computed": "readonly",
         "ref": "readonly"
     },
