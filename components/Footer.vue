@@ -5,7 +5,8 @@
                 <i class="fa-solid fa-cube text-green-400 text-5xl"></i>
             </NuxtLinkExtended>
             <nav>
-                <ul>
+                <p class="text-xs text-gray-500">Links</p>
+                <ul class="flex justify-center gap-2">
                     <li><NuxtLinkExtended to="/projects">Projects</NuxtLinkExtended></li>
                     <li><NuxtLinkExtended to="/about">About</NuxtLinkExtended></li>
                     <!-- <li><NuxtLinkExtended to="/tags">Tags</NuxtLinkExtended></li> -->
