@@ -13,12 +13,21 @@
 * [x] Add one handler for `+` and `-` signs for `forks`, `stars` and `issues`
 * [ ] Add projects page
 * [ ] Add about page
-* [ ] Add tile variants
+* Add tile variants
   * [x] Project
   * [ ] Small
   * [ ] Extended
 * [ ] Slap in tracker, preferable posthog
 * [ ] Fix minor bugs
+* Tests
+  * [ ] Test for tile wrap having correct borders: `first:`, `last:` style tests
+
+## Roadmap
+
+* Add other social stats
+  * [ ] Reddit
+  * [ ] Twitter
+  * [ ] Facebook
 
 ## Commit tags
 

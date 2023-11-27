@@ -1,3 +1,6 @@
+/**
+ * This function and prepends + or - sign in front of a number (converted to string)
+ */
 export default function addPlusMinus(num: number): string | '0' {
     const sign = num > 0 ? '+' : '-'
 
