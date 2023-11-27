@@ -9,6 +9,7 @@
         :stars="stars"
         :forks="forks"
         :open-issues="openIssues"
+        :homepage="homepage"
     />
     <TileExtended v-if="variant === 'extended'" />
     <TileSmall v-if="variant === 'small'" />
@@ -25,15 +26,16 @@ type ProjectProps = {
     stars: number
     forks: number
     openIssues: number
+    homepage: string
 }
 
 type SmallProps = {
     variant: 'small',
-    repository: any
+    repository?: any
 }
 type ExtendedProps = {
     variant: 'extended',
-    repository: any
+    repository?: any
 }
 
 type Props = ProjectProps | SmallProps | ExtendedProps

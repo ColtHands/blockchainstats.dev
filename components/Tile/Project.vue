@@ -1,5 +1,4 @@
 <template>
-    <!-- <pre>{{$props}}</pre> -->
     <TileWrap>
         <div>
             <UAvatar size="xl" :src="avatarUrl" class="h-20 w-20" />
@@ -12,7 +11,7 @@
                 <NuxtLink :to="url" target="_blank">
                     <i class="fa-brands fa-github"></i>
                 </NuxtLink>
-                <NuxtLink to="homepage">
+                <NuxtLink v-if="homepage" :to="homepage" target="_blank">
                     <i class="fa-solid fa-house"></i>
                 </NuxtLink>
             </div>
@@ -38,6 +37,7 @@ type Props = {
     stars: number
     forks: number
     openIssues: number
+    homepage: string
 }
 
 const props = defineProps<Props>()
