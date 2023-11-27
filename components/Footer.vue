@@ -8,13 +8,13 @@
                 <ul>
                     <li><NuxtLinkExtended to="/projects">Projects</NuxtLinkExtended></li>
                     <li><NuxtLinkExtended to="/about">About</NuxtLinkExtended></li>
-                    <li><NuxtLinkExtended to="/tags">Tags</NuxtLinkExtended></li>
-                    <li><NuxtLinkExtended to="/coins">Coins</NuxtLinkExtended></li>
+                    <!-- <li><NuxtLinkExtended to="/tags">Tags</NuxtLinkExtended></li> -->
+                    <!-- <li><NuxtLinkExtended to="/coins">Coins</NuxtLinkExtended></li> -->
                 </ul>
             </nav>
             <div class="flex justify-center gap-2">
-                <NuxtLinkExtended to="github.com" class="text-2xl"><i class="fa-brands fa-github"></i></NuxtLinkExtended>
-                <NuxtLinkExtended to="twitter.com" class="text-2xl"><i class="fa-brands fa-x-twitter"></i></NuxtLinkExtended>
+                <NuxtLinkExtended to="https://github.com/ColtHands/blockchain-developer-stats-frontend" class="text-2xl"><i class="fa-brands fa-github"></i></NuxtLinkExtended>
+                <NuxtLinkExtended to="https://twitter.com/0xColtHands" class="text-2xl"><i class="fa-brands fa-x-twitter"></i></NuxtLinkExtended>
             </div>
         </div>
         <div class="border-t border-cyan-950 py-2 text-center text-gray-500 text-sm">
