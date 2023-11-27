@@ -12,7 +12,19 @@
 * [x] Add those requests as useNuxtData (or useAsyncData) idk now
 * [x] Add one handler for `+` and `-` signs for `forks`, `stars` and `issues`
 * [ ] Add projects page
-* [ ] Add about page
+* Add single project page
+  * [ ] request coingecko data
+  * [ ] request cmc data
+  * [ ] request my stats-over-time
+* Add about page
+  * [ ] Add project description
+  * [ ] Add roadmap
+  * [ ] Add tech stack
+  * [ ] Add BE flowchart
+  * [ ] Add follow me section
+  * [ ] Prompt to add suggestions via github / twitter(x)
+  * [ ] Add git badges - to about or to footer (consider)?
+* [ ] Consider adding git user stats (hall of fame)
 * [ ] Add UI skeleton loading to tiles
 * Add tile variants
   * [x] Project
