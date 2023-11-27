@@ -27,6 +27,7 @@
             <Tile
                 v-for="repository in repositories"
                 :key="repository.id"
+                variant="project"
                 :avatar-url="repository.avatar_url"
                 :name="repository.repository"
                 :owner="repository.owner"
@@ -35,8 +36,6 @@
                 :stars="repository.growth.week.stars"
                 :forks="repository.growth.week.forks"
                 :open-issues="repository.growth.week.open_issues"
-                variant="project"
-                class="first:rounded-t-md last:rounded-b-sm"
             />
         </div>
     </NuxtLayout>
@@ -48,7 +47,7 @@ const selectedSort = ref('')
 
 const repositories: Ref<Array<any>> = ref([])
 
-// FIXME This happens in client, need to happen in ssr 
+// FIXME This happens in client, need to happen in ssr
 const fetchRepos = async () => {
     const repos = await useApi().getRepositories(true) as any
 
