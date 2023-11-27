@@ -63,7 +63,11 @@ const selectedLimit = ref('')
 
 const repositories: Ref<Array<any>> = ref([])
 
-// FIXME This happens in client, need to happen in ssr
+/**
+ * This happens in client, need to happen in ssr
+ * To avoid content mismatch ClientOnly component had to be used
+ * FIXME Fix this so first render happens in ssr mode, maybe, should it?
+ */
 const fetchRepos = async () => {
     const repos = await useApi().getRepositories(true, parseInt(selectedLimit.value)) as any
 
