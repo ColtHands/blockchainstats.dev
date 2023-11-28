@@ -9,7 +9,7 @@
                     v-model="selectedTimeFrame"
                     placeholder="Time frame"
                     :loading="false"
-                    :options="['week', 'moth']"
+                    :options="['week', 'month']"
                     class="w-30"
                 >
                     <template #trailing>
@@ -17,7 +17,7 @@
                     </template>
                 </USelect>
                 <USelect
-                    v-model="selectedSortType"
+                    v-model="selectedSortBy"
                     placeholder="Sort by"
                     :loading="false"
                     :options="['stars', 'forks', 'issues']"
@@ -41,51 +41,55 @@
             </div>
         </TileWrap>
         <ClientOnly>
-            <Tile
-                v-for="repository in repositories"
-                :key="repository.id"
-                variant="project"
-                :avatar-url="repository.avatar_url"
-                :name="repository.repository"
-                :owner="repository.owner"
-                :url="repository._id"
-                :description="repository.coinId.description['en']"
-                :stars="repository?.growth.week.stars"
-                :forks="repository?.growth.week.forks"
-                :open-issues="repository.growth.week.open_issues"
-                :homepage="filterOutEmptyStrings(repository.coinId.links.homepage)[0]"
-            />
+            <div v-if="loading">loading</div>
+            <template v-else>
+                <Tile
+                    v-for="repository in repositories"
+                    :key="repository.id"
+                    variant="project"
+                    :avatar-url="repository.avatar_url"
+                    :name="repository.repository"
+                    :owner="repository.owner"
+                    :url="repository._id"
+                    :description="repository.coinId.description['en']"
+                    :stars="repository?.growth.week.stars"
+                    :forks="repository?.growth.week.forks"
+                    :open-issues="repository.growth.week.open_issues"
+                    :homepage="filterOutEmptyStrings(repository.coinId.links.homepage)[0]"
+                />
+            </template>
         </ClientOnly>
     </div>
 </template>
 
 <script lang="ts" setup>
-const selectedSortType = ref('')
+// TODO Consider refactoring with pinia and or splitting into smaller components
+
+const selectedSortBy = ref('')
 const selectedLimit = ref('')
 const selectedTimeFrame = ref('')
 
+const loading = ref(false)
+
 const repositories: Ref<Array<any>> = ref([])
 
-/**
- * This happens in client, need to happen in ssr
- * To avoid content mismatch ClientOnly component had to be used
- * FIXME Fix this so first render happens in ssr mode, maybe, should it?
- */
-const fetchRepos = async (passedVal) => {
-    const {
-        type,
-        limit,
-        timeFrame
-    } = passedVal ?? {}
+const fetchRepos = async () => {
+    loading.value = true
 
-    const repos = await useApi().getRepositories(true, parseInt(unref(limit)), unref(type), unref(timeFrame)) as any
+    const repos = await useApi().getRepositories(
+        true,
+        parseInt(unref(selectedLimit)),
+        unref(selectedTimeFrame),
+        unref(selectedSortBy)
+    ) as any
 
+    loading.value = false
     repositories.value = unref(repos)
 }
 
 await fetchRepos()
 
-watch(selectedSortType, type => fetchRepos({ type }))
-watch(selectedLimit, limit => fetchRepos({ limit }))
-watch(selectedTimeFrame, timeFrame => fetchRepos({ timeFrame }))
+watch(selectedSortBy, fetchRepos)
+watch(selectedLimit, fetchRepos)
+watch(selectedTimeFrame, fetchRepos)
 </script>

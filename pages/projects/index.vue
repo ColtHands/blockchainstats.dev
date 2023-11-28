@@ -1,11 +1,7 @@
 <template>
-    <pre>{{route.fullPath}}</pre>
-    <pre>{{route.matched}}</pre>
-    <pre>{{route.meta}}</pre>
-    <pre>{{route.name}}</pre>
-    <pre>{{route.params}}</pre>
+    <div class="text-5xl font-bold mt-8 flex justify-center gap-5">
+        <i class="fa-solid fa-chart-bar"></i>
+        <h1>Total 123123 project in database</h1>
+    </div>
+    <SectionTiles />
 </template>
-
-<script lang="ts" setup>
-const route = useRoute()
-</script>

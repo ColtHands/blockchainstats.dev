@@ -5,8 +5,8 @@
         </div>
         <div>
             <div class="flex gap-2 justify-start items-center">
-                <NuxtLink class="text-xl text-green-400" :to="`projects/${owner}/${name}`">
-                    {{name}}
+                <NuxtLink class="text-green-400" :to="`projects/${owner}/${name}`">
+                    <h3 class="text-xl">{{name}}</h3>
                 </NuxtLink>
                 <NuxtLink :to="url" target="_blank">
                     <i class="fa-brands fa-github"></i>
