@@ -16,7 +16,6 @@
 * [x] Add projects page
 * [ ] Add UI skeleton loading to tiles
 * [ ] Slap in tracker, preferable posthog
-* [ ] Implement pagination for `/projects` page `SectionTile`
 * [ ] Add robots.txt
 * [ ] Add sitemap
 
@@ -27,6 +26,8 @@
 
 #### `/projects` page
 
+* [ ] Implement pagination
+* [ ] Add ASC DESC sort
 * Add `Tile` variants
   * [x] Project
   * [ ] Small
@@ -36,9 +37,10 @@
 
 #### `/project/[owner]/repository` page
 
-* [ ] request coingecko data
-* [ ] request cmc data
-* [ ] request my stats-over-time
+1. [ ] request single repository
+2. [ ] request my stats-over-time
+3. [ ] (probably unnecessary) request coingecko data
+4. [ ] (probably unnecessary) request cmc data
 
 #### `/about` page
 
@@ -49,6 +51,13 @@
 * [ ] Add follow me section
 * [ ] Prompt to add suggestions via github / twitter(x)
 * [ ] Add git badges - to about or to footer (consider)?
+
+#### `/topics` page
+
+#### Considerations for refactoring
+
+* [ ] Consider refactoring Stateful Tiles Section from refs to pinia
+* [ ] Consider using Nuxt UI internal layouts: `card` or `container`
 
 ## Roadmap
 
