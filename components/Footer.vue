@@ -6,11 +6,12 @@
             </NuxtLinkExtended>
             <nav>
                 <p class="text-xs text-gray-500">Links</p>
-                <ul class="flex justify-center gap-2">
-                    <li><NuxtLinkExtended to="/projects">Projects</NuxtLinkExtended></li>
-                    <li><NuxtLinkExtended to="/about">About</NuxtLinkExtended></li>
-                    <!-- <li><NuxtLinkExtended to="/tags">Tags</NuxtLinkExtended></li> -->
-                    <!-- <li><NuxtLinkExtended to="/coins">Coins</NuxtLinkExtended></li> -->
+                <ul class="flex justify-center gap-3">
+                    <li v-for="{title,path} in useAppConfig().navigationLinks" :key="path">
+                        <NuxtLinkExtended :to="path">
+                            {{title}}
+                        </NuxtLinkExtended>
+                    </li>
                 </ul>
             </nav>
             <div class="flex justify-center gap-2">

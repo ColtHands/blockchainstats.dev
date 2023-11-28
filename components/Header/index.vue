@@ -8,10 +8,13 @@
             <HeaderSearchBar class="w-72"></HeaderSearchBar>
 
             <nav class="flex justify-center gap-4">
-                <NuxtLinkExtended to="/projects">Projects</NuxtLinkExtended>
-                <NuxtLinkExtended to="/about">About</NuxtLinkExtended>
-                <!-- <NuxtLinkExtended to="/tags">Tags</NuxtLinkExtended> -->
-                <!-- <NuxtLinkExtended to="/coins">Coins</NuxtLinkExtended> -->
+                <NuxtLinkExtended
+                    v-for="{title,path} in useAppConfig().navigationLinks"
+                    :key="path"
+                    :to="path"
+                >
+                    {{title}}
+                </NuxtLinkExtended>
             </nav>
 
             <div class="flex justify-center gap-4">
