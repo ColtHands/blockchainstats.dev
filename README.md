@@ -2,41 +2,57 @@
 
 ## TODOs
 
+### For Release
+
 * [x] Add NuxtImg
 * [x] Add fontawesome
 * [x] Add NuxtUi
 * [x] Add Description
 * [x] Project Tile should take prop-by-prop instead of just repositories
-* [ ] Add sort by stars, issues, forks
+* [x] Add sort by stars, issues, forks
 * [ ] Add proxy for api requests
 * [x] Add those requests as useNuxtData (or useAsyncData) idk now
 * [x] Add one handler for `+` and `-` signs for `forks`, `stars` and `issues`
-* [ ] Add projects page
-* Add single project page
-  * [ ] request coingecko data
-  * [ ] request cmc data
-  * [ ] request my stats-over-time
-* Add about page
-  * [ ] Add project description
-  * [ ] Add roadmap
-  * [ ] Add tech stack
-  * [ ] Add BE flowchart
-  * [ ] Add follow me section
-  * [ ] Prompt to add suggestions via github / twitter(x)
-  * [ ] Add git badges - to about or to footer (consider)?
-* [ ] Consider adding git user stats (hall of fame)
+* [x] Add projects page
 * [ ] Add UI skeleton loading to tiles
-* Add tile variants
+* [ ] Slap in tracker, preferable posthog
+* [ ] Implement pagination for `/projects` page `SectionTile`
+* [ ] Add robots.txt
+* [ ] Add sitemap
+
+#### Tests
+
+* [ ] Test for `Tile` wrap having correct borders: `first:`, `last:` style tests
+* [ ] Integration or e2e for correct sorting
+
+#### `/projects` page
+
+* Add `Tile` variants
   * [x] Project
   * [ ] Small
   * [ ] Extended
-* [ ] Slap in tracker, preferable posthog
-* [ ] Fix minor bugs
-* Tests
-  * [ ] Test for tile wrap having correct borders: `first:`, `last:` style tests
+
+* [ ] Add Those `Tile` variants `Extended` and `Small` to `/projects` page
+
+#### `/project/[owner]/repository` page
+
+* [ ] request coingecko data
+* [ ] request cmc data
+* [ ] request my stats-over-time
+
+#### `/about` page
+
+* [ ] Add project description
+* [ ] Add roadmap
+* [ ] Add tech stack
+* [ ] Add BE flowchart
+* [ ] Add follow me section
+* [ ] Prompt to add suggestions via github / twitter(x)
+* [ ] Add git badges - to about or to footer (consider)?
 
 ## Roadmap
 
+* [ ] Consider adding git user stats (hall of fame)
 * Add other social stats
   * [ ] Reddit
   * [ ] Twitter
