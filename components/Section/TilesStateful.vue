@@ -2,7 +2,7 @@
     <div class="flex justify-center flex-col mt-10 gap-0 w-full sm:w md:w-3/3 lg:w-2/4 xl:w-3/5 mx-auto backdrop-blur border border-green-900 rounded-md">
         <TileWrap class="rounded-t-md justify-between">
             <div>
-                Top projects by stars this week
+                Top {{selectedLimit || 10}} projects by {{selectedSortBy || 'stars'}} this {{selectedTimeFrame || 'week'}}
             </div>
             <div class="flex gap-2">
                 <USelect
@@ -64,13 +64,10 @@
 
 <script lang="ts" setup>
 // TODO Consider refactoring with pinia and or splitting into smaller components
-
 const selectedSortBy = ref('')
 const selectedLimit = ref('')
 const selectedTimeFrame = ref('')
-
 const loading = ref(false)
-
 const repositories: Ref<Array<any>> = ref([])
 
 const fetchRepos = async () => {
@@ -89,7 +86,5 @@ const fetchRepos = async () => {
 
 await fetchRepos()
 
-watch(selectedSortBy, fetchRepos)
-watch(selectedLimit, fetchRepos)
-watch(selectedTimeFrame, fetchRepos)
+watch([selectedSortBy, selectedLimit, selectedTimeFrame], fetchRepos)
 </script>

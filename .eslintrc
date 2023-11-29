@@ -8,6 +8,7 @@
         "toRefs": "readonly",
         "addPlusMinus": "readonly",
         "Ref": "readonly",
+        "reactive": "readonly",
         "watch": "readonly",
         "unref": "readonly",
         "computed": "readonly",

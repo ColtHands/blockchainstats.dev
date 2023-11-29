@@ -3,5 +3,5 @@
         <i class="fa-solid fa-chart-bar"></i>
         <h1>Total 123123 project in database</h1>
     </div>
-    <SectionTiles />
+    <SectionTilesStateful />
 </template>
