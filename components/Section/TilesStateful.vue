@@ -2,11 +2,11 @@
     <div class="flex justify-center flex-col mt-10 gap-0 w-full sm:w md:w-3/3 lg:w-2/4 xl:w-3/5 mx-auto backdrop-blur border border-green-900 rounded-md">
         <TileWrap class="rounded-t-md justify-between">
             <div>
-                Top {{selectedLimit || 10}} projects by {{selectedSortBy || 'stars'}} this {{selectedTimeFrame || 'week'}}
+                Top {{state.selectedLimit.value || 10}} projects by {{state.selectedSortBy.value || 'stars'}} this {{state.selectedTimeFrame.value || 'week'}}
             </div>
             <div class="flex gap-2">
                 <USelect
-                    v-model="selectedTimeFrame"
+                    v-model="state.selectedTimeFrame.value"
                     placeholder="Time frame"
                     :loading="false"
                     :options="['week', 'month']"
@@ -17,7 +17,7 @@
                     </template>
                 </USelect>
                 <USelect
-                    v-model="selectedSortBy"
+                    v-model="state.selectedSortBy.value"
                     placeholder="Sort by"
                     :loading="false"
                     :options="['stars', 'forks', 'issues']"
@@ -28,7 +28,7 @@
                     </template>
                 </USelect>
                 <USelect
-                    v-model="selectedLimit"
+                    v-model="state.selectedLimit.value"
                     placeholder="Limit"
                     :loading="false"
                     :options="['10', '25', '50']"
@@ -41,10 +41,10 @@
             </div>
         </TileWrap>
         <ClientOnly>
-            <div v-if="loading">loading</div>
+            <div v-if="state.loading.value">loading</div>
             <template v-else>
                 <Tile
-                    v-for="repository in repositories"
+                    v-for="repository in state.repositories.value"
                     :key="repository.id"
                     variant="project"
                     :avatar-url="repository.avatar_url"
@@ -63,28 +63,28 @@
 </template>
 
 <script lang="ts" setup>
-// TODO Consider refactoring with pinia and or splitting into smaller components
-const selectedSortBy = ref('')
-const selectedLimit = ref('')
-const selectedTimeFrame = ref('')
-const loading = ref(false)
-const repositories: Ref<Array<any>> = ref([])
+const state = {
+    selectedSortBy: ref(''),
+    selectedLimit: ref(''),
+    selectedTimeFrame: ref(''),
+    loading: ref(false),
+    repositories: ref([]) as Ref<Array<any>>,
+    fetchRepos: async function () {
+        this.loading.value = true
 
-const fetchRepos = async () => {
-    loading.value = true
+        const repos = await useApi().getRepositories(
+            true,
+            parseInt(unref(this.selectedLimit)),
+            unref(this.selectedTimeFrame),
+            unref(this.selectedSortBy)
+        ) as any
 
-    const repos = await useApi().getRepositories(
-        true,
-        parseInt(unref(selectedLimit)),
-        unref(selectedTimeFrame),
-        unref(selectedSortBy)
-    ) as any
-
-    loading.value = false
-    repositories.value = unref(repos)
+        this.loading.value = false
+        this.repositories.value = unref(repos)
+    }
 }
 
-await fetchRepos()
+await state.fetchRepos()
 
-watch([selectedSortBy, selectedLimit, selectedTimeFrame], fetchRepos)
+watch([state.selectedSortBy, state.selectedLimit, state.selectedTimeFrame], state.fetchRepos)
 </script>
