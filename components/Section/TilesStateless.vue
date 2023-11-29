@@ -23,5 +23,5 @@
 </template>
 
 <script lang="ts" setup>
-const repositories =await useApi().getRepositories(true) as any
+const repositories = await useApi().getRepositories(true) as any
 </script>

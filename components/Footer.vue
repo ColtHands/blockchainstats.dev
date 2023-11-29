@@ -6,7 +6,7 @@
             </NuxtLinkExtended>
             <nav>
                 <p class="text-xs text-gray-500">Links</p>
-                <ul class="flex justify-center gap-3">
+                <ul class="flex justify-center gap-3 mt-1">
                     <li v-for="{title,path} in useAppConfig().navigationLinks" :key="path">
                         <NuxtLinkExtended :to="path">
                             {{title}}
