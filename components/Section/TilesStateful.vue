@@ -2,11 +2,11 @@
     <div class="flex justify-center flex-col mt-10 gap-0 w-full sm:w md:w-3/3 lg:w-2/4 xl:w-3/5 mx-auto backdrop-blur border border-green-900 rounded-md">
         <TileWrap class="rounded-t-md justify-between">
             <div>
-                Top {{state.selectedLimit.value || 10}} projects by {{state.selectedSortBy.value || 'stars'}} this {{state.selectedTimeFrame.value || 'week'}}
+                Top {{state.limit.value || 10}} projects by {{state.sortBy.value || 'stars'}} this {{state.timeFrame.value || 'week'}}
             </div>
             <div class="flex gap-2">
                 <USelect
-                    v-model="state.selectedTimeFrame.value"
+                    v-model="state.timeFrame.value"
                     placeholder="Time frame"
                     :loading="false"
                     :options="['week', 'month']"
@@ -17,7 +17,7 @@
                     </template>
                 </USelect>
                 <USelect
-                    v-model="state.selectedSortBy.value"
+                    v-model="state.sortBy.value"
                     placeholder="Sort by"
                     :loading="false"
                     :options="['stars', 'forks', 'issues']"
@@ -28,7 +28,7 @@
                     </template>
                 </USelect>
                 <USelect
-                    v-model="state.selectedLimit.value"
+                    v-model="state.limit.value"
                     placeholder="Limit"
                     :loading="false"
                     :options="['10', '25', '50']"
@@ -59,24 +59,36 @@
                 />
             </template>
         </ClientOnly>
+        <TileWrap class="justify-end">
+            <UPagination
+                v-model="state.page.value"
+                size="md"
+                :total="100"
+                :show-last="false"
+                show-first
+            />
+        </TileWrap>
     </div>
 </template>
 
 <script lang="ts" setup>
+// TODO Move this state to `/project` route
 const state = {
-    selectedSortBy: ref(''),
-    selectedLimit: ref(''),
-    selectedTimeFrame: ref(''),
+    sortBy: ref(''),
+    limit: ref(''),
+    timeFrame: ref(''),
     loading: ref(false),
     repositories: ref([]) as Ref<Array<any>>,
+    page: ref(1),
     fetchRepos: async function () {
         this.loading.value = true
 
         const repos = await useApi().getRepositories(
             true,
-            parseInt(unref(this.selectedLimit)),
-            unref(this.selectedTimeFrame),
-            unref(this.selectedSortBy)
+            unref(this.limit),
+            unref(this.timeFrame),
+            unref(this.sortBy),
+            unref(this.page)
         ) as any
 
         this.loading.value = false
@@ -86,5 +98,5 @@ const state = {
 
 await state.fetchRepos()
 
-watch([state.selectedSortBy, state.selectedLimit, state.selectedTimeFrame], state.fetchRepos)
+watch([state.sortBy, state.limit, state.timeFrame, state.page], state.fetchRepos.bind(state))
 </script>
