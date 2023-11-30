@@ -41,7 +41,9 @@
             </div>
         </TileWrap>
         <ClientOnly>
-            <div v-if="state.loading.value">loading</div>
+            <div v-if="state.loading.value">
+                <TileSkeleton v-for="idx in state.limit.value === '' ? 10 : Number(state.limit.value)" :key="idx" />
+            </div>
             <template v-else>
                 <Tile
                     v-for="repository in state.repositories.value"
