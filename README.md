@@ -14,7 +14,7 @@
 * [x] Add those requests as useNuxtData (or useAsyncData) idk now
 * [x] Add one handler for `+` and `-` signs for `forks`, `stars` and `issues`
 * [x] Add projects page
-* [ ] Add UI skeleton loading to tiles
+* [x] Add UI skeleton loading to tiles
 * [ ] Slap in tracker, preferable posthog
 * [ ] Add robots.txt
 * [ ] Add sitemap
@@ -26,8 +26,8 @@
 
 #### `/projects` page
 
-* [ ] Implement pagination
-* [ ] Add ASC DESC sort
+* [x] Implement pagination
+* [x] Add ASC DESC sort (cancelled, because after 2-3 pages updates are very tiny)
 * Add `Tile` variants
   * [x] Project
   * [ ] Small
@@ -53,6 +53,8 @@
 * [ ] Add git badges - to about or to footer (consider)?
 
 #### `/topics` page
+
+* [ ] TBD
 
 #### Considerations for refactoring
 
