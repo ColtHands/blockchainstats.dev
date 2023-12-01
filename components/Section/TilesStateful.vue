@@ -2,11 +2,11 @@
     <div class="flex justify-center flex-col mt-10 gap-0 w-full sm:w md:w-3/3 lg:w-2/4 xl:w-3/5 mx-auto backdrop-blur border border-green-900 rounded-md">
         <TileWrap class="rounded-t-md justify-between">
             <div>
-                Top {{state.limit.value || 10}} projects by {{state.sortBy.value || 'stars'}} this {{state.timeFrame.value || 'week'}}
+                Top {{limit}} projects by {{sortBy || 'stars'}} this {{timeFrame || 'week'}}
             </div>
             <div class="flex gap-2">
                 <USelect
-                    v-model="state.timeFrame.value"
+                    v-model="timeFrame"
                     placeholder="Time frame"
                     :loading="false"
                     :options="['week', 'month']"
@@ -17,7 +17,7 @@
                     </template>
                 </USelect>
                 <USelect
-                    v-model="state.sortBy.value"
+                    v-model="sortBy"
                     placeholder="Sort by"
                     :loading="false"
                     :options="['stars', 'forks', 'issues']"
@@ -28,7 +28,7 @@
                     </template>
                 </USelect>
                 <USelect
-                    v-model="state.limit.value"
+                    v-model="limit"
                     placeholder="Limit"
                     :loading="false"
                     :options="['10', '25', '50']"
@@ -41,12 +41,12 @@
             </div>
         </TileWrap>
         <ClientOnly>
-            <div v-if="state.loading.value">
-                <TileSkeleton v-for="idx in state.limit.value === '' ? 10 : Number(state.limit.value)" :key="idx" />
+            <div v-if="loading">
+                <TileSkeleton v-for="idx in limit === '' ? 10 : Number(limit)" :key="idx" />
             </div>
             <template v-else>
                 <Tile
-                    v-for="repository in state.repositories.value"
+                    v-for="repository in repositories"
                     :key="repository.id"
                     variant="project"
                     :avatar-url="repository.avatar_url"
@@ -63,7 +63,7 @@
         </ClientOnly>
         <TileWrap class="justify-end">
             <UPagination
-                v-model="state.page.value"
+                v-model="page"
                 size="md"
                 :total="100"
                 :show-last="false"
@@ -75,30 +75,34 @@
 
 <script lang="ts" setup>
 // TODO Move this state to `/project` route
-const state = {
-    sortBy: ref(''),
-    limit: ref(''),
-    timeFrame: ref(''),
-    loading: ref(false),
-    repositories: ref([]) as Ref<Array<any>>,
-    page: ref(1),
-    fetchRepos: async function () {
-        this.loading.value = true
 
-        const repos = await useApi().getRepositories(
-            true,
-            unref(this.limit),
-            unref(this.timeFrame),
-            unref(this.sortBy),
-            unref(this.page)
-        ) as any
+const sortBy = ref('')
+const limit = ref('')
+const timeFrame = ref('')
+const loading = ref(false)
+const repositories = ref([]) as Ref<Array<any>>
+const page = ref(1)
 
-        this.loading.value = false
-        this.repositories.value = unref(repos)
-    }
+const limitComputed = unref(computed(() => unref(limit) === '' ? 10 : parseInt(unref(limit))))
+const timeFrameComputed = unref(computed(() => unref(timeFrame) || 'week'))
+const sortByComputed = unref(computed(() => unref(sortBy) || 'stars'))
+
+const fetchRepos = async () => {
+    loading.value = true
+
+    const repos = await useApi().getRepositories(
+        true,
+        limitComputed,
+        timeFrameComputed,
+        sortByComputed,
+        unref(page)
+    ) as any
+
+    loading.value = false
+    repositories.value = unref(repos)
 }
 
-await state.fetchRepos()
+await fetchRepos()
 
-watch([state.sortBy, state.limit, state.timeFrame, state.page], state.fetchRepos.bind(state))
+watch([sortBy, limit, timeFrame, page], fetchRepos)
 </script>

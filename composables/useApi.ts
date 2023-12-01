@@ -4,17 +4,22 @@ export default function useApi() {
     const port = 3000
     const baseUrl = `${protocol}://${rawUrl}:${port}`
 
-    type GetRepositoriesFn = (includeCoinData?: boolean, limit?: string, timeFrame?: string, sortBy?: string, page?: number) => Promise<unknown>
-    const getRepositories: GetRepositoriesFn = async (includeCoinData, limit, timeFrame, sortBy, page) => {
-        const limitParsed = limit ? Number(limit) : 10
-        const offset = page ? ((page - 1) * limitParsed) : 1
+    type GetRepositoriesFn = (includeCoinData?: boolean, limit?: number, timeFrame?: string, sortBy?: string, page?: number) => Promise<unknown>
+    const getRepositories: GetRepositoriesFn = async (
+        includeCoinData = false,
+        limit = 10,
+        timeFrame = 'week',
+        sortBy = 'stars',
+        page = 1
+    ) => {
+        const offset = page ? ((page - 1) * limit) : 1
 
         const { data } = await useFetch(`${baseUrl}/get-repositories`, {
             query: {
                 includeCoinData,
-                timeFrame: timeFrame ? timeFrame : 'week',
-                sortBy: sortBy ? sortBy : 'stars',
-                limit: limitParsed,
+                timeFrame,
+                sortBy,
+                limit,
                 offset
             }
         })

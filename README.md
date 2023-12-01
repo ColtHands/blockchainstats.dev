@@ -52,14 +52,18 @@
 * [ ] Prompt to add suggestions via github / twitter(x)
 * [ ] Add git badges - to about or to footer (consider)?
 
-#### `/topics` page
+### `/topics` page
 
 * [ ] TBD
 
-#### Considerations for refactoring
+### Considerations for refactoring
 
 * [ ] Consider refactoring Stateful Tiles Section from refs to pinia
 * [ ] Consider using Nuxt UI internal layouts: `card` or `container`
+
+### BE TODOs
+
+* [ ] Add `get-all-topics` request
 
 ## Roadmap
 
