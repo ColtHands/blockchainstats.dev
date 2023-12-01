@@ -15,6 +15,7 @@ export default function useApi() {
         const offset = page ? ((page - 1) * limit) : 1
 
         const { data } = await useFetch(`${baseUrl}/get-repositories`, {
+            key: 'repositories',
             query: {
                 includeCoinData,
                 timeFrame,
@@ -33,8 +34,29 @@ export default function useApi() {
         return data
     }
 
+    const getRepositoryUpdates = async (owner: string, repository: string) => {
+        const { data } = await useFetch(`${baseUrl}/get-repository-updates/${owner}/${repository}`)
+
+        return data
+    }
+
+    const getSingleRepository = async (owner: string, repository: string) => {
+        const { data } = await useFetch(`${baseUrl}/get-single-repository`, {
+            key: `${owner}/${repository}`,
+            query: {
+                owner,
+                repository,
+                includeCoinData: true
+            }
+        })
+
+        return data
+    }
+
     return {
         getRepositories,
-        getRepositoriesCount
+        getRepositoriesCount,
+        getSingleRepository,
+        getRepositoryUpdates
     }
 }
