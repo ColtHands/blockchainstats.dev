@@ -16,13 +16,15 @@
 * [x] Add projects page
 * [x] Add UI skeleton loading to tiles
 * [ ] Slap in tracker, preferable posthog
-* [ ] Add robots.txt
+* [x] Add robots.txt
 * [ ] Add sitemap
 
-#### Tests
+### `/index` page
 
-* [ ] Test for `Tile` wrap having correct borders: `first:`, `last:` style tests
-* [ ] Integration or e2e for correct sorting
+* Sidebar
+  * [ ] Topics list
+  * [ ] List of most forked repos
+* [ ] Section with some extra info (probably taken from `/about`)
 
 #### `/projects` page
 
@@ -35,10 +37,10 @@
 
 * [ ] Add Those `Tile` variants `Extended` and `Small` to `/projects` page
 
-#### `/project/[owner]/repository` page
+#### `/project/[owner]/[repository]` page
 
-1. [ ] request single repository
-2. [ ] request my stats-over-time
+1. [x] request single repository
+2. [x] request my stats-over-time
 3. [ ] (probably unnecessary) request coingecko data
 4. [ ] (probably unnecessary) request cmc data
 
@@ -54,24 +56,26 @@
 
 ### `/topics` page
 
-* [ ] TBD
+* [ ] [BE] Add `get-all-topics` request
 
 ### Considerations for refactoring
 
 * [ ] Consider refactoring Stateful Tiles Section from refs to pinia
 * [ ] Consider using Nuxt UI internal layouts: `card` or `container`
 
-### BE TODOs
+### Tests
 
-* [ ] Add `get-all-topics` request
+* [ ] Test for `Tile` wrap having correct borders: `first:`, `last:` style tests
+* [ ] Integration or e2e for correct sorting
 
 ## Roadmap
 
-* [ ] Consider adding git user stats (hall of fame)
 * Add other social stats
-  * [ ] Reddit
   * [ ] Twitter
+  * [ ] npm
+  * [ ] Reddit
   * [ ] Facebook
+* [ ] Consider adding git user stats (hall of fame)
 
 ## Commit tags
 
