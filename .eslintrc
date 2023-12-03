@@ -9,6 +9,8 @@
         "addPlusMinus": "readonly",
         "Ref": "readonly",
         "reactive": "readonly",
+        "filterOutEmptyStrings": "readonly",
+        "getUlrHostname": "readonly",
         "watch": "readonly",
         "unref": "readonly",
         "computed": "readonly",

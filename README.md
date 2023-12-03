@@ -56,7 +56,7 @@
 
 ### `/topics` page
 
-* [ ] [BE] Add `get-all-topics` request
+* [ ] [BE] Add `get-all-topics` request (with how many repositories have that topic)
 
 ### Considerations for refactoring
 
