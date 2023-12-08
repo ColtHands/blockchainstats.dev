@@ -10,7 +10,7 @@
         "Ref": "readonly",
         "reactive": "readonly",
         "filterOutEmptyStrings": "readonly",
-        "getUlrHostname": "readonly",
+        "getUrlDomainName": "readonly",
         "watch": "readonly",
         "unref": "readonly",
         "computed": "readonly",
