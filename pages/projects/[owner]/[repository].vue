@@ -1,15 +1,31 @@
 <template>
-    <div class="flex gap-8">
+    <div class="flex justify-between gap-8">
         <div>
-            total stats go here
-        </div>
+            <div class="flex justify-start items-center gap-2">
+                <img :src="imageUrl" class="w-10 h-10" :alt="`{{ name }} logo`" />
+                <h1 class="text-5xl font-semibold">{{name}}</h1>
+            </div>
+            <div class="flex gap-2 mt-2">
+                <RepositoryStatsBadge title="Stars">
+                    <i class="text-xs fa-solid fa-star-half-stroke"></i> {{stars}}
+                </RepositoryStatsBadge>
+                <RepositoryStatsBadge title="Forks">
+                    <i class="text-xs fa-solid fa-code-fork"></i> {{forks}}
+                </RepositoryStatsBadge>
+                <RepositoryStatsBadge title="Issues">
+                    <i class="text-xs fa-regular fa-circle-dot"></i> {{issues}}
+                </RepositoryStatsBadge>
+                <!-- <RepositoryStatsBadge title="Subscribers">
+                    <i class="text-xs fa-regular fa-circle-dot"></i> {{subscribers}}
+                </RepositoryStatsBadge> -->
+            </div>
 
-        <div>
-            <h1 class="text-5xl font-semibold">{{name}}</h1>
             <h2 class="line-clamp-4 overflow-hidden leading-snug max-w-2xl mt-4 text-md">
                 <p :title="gitDescription">{{gitDescription}}</p>
                 <p :title="description" v-html="description"></p>
             </h2>
+
+
             <ul class="flex gap-2 justify-start mt-4">
                 <li v-for="topic in topics" :key="topic">
                     <NuxtLink :to="`/topics/${topic}`">
@@ -25,18 +41,45 @@
                 </li>
             </ul>
         </div>
-        <div>
-            social links
-            <ul>
-                <li>repositoryUrl - {{repositoryUrl}}</li>
-                <li>homepageUrl - {{homepageUrl}}</li>
-                <li>twitterUrl - {{twitterUrl}}</li>
-                <li>subredditUrl - {{subredditUrl}}</li>
-                <li>otherLinks - {{otherLinks}}</li>
-            </ul>
-            <pre>{{links}}</pre>
-        </div>
+
+        <nav class="w-44 flex flex-col gap-2">
+            <RepositoryLinkButton :url="repositoryUrl">
+                <template #icon>
+                    <i class="fa-brands fa-github" />
+                </template>
+            </RepositoryLinkButton>
+            <RepositoryLinkButton :url="homepageUrl">
+                <template #icon>
+                    <i class="fa-solid fa-house"></i>
+                </template>
+            </RepositoryLinkButton>
+            <RepositoryLinkButton :url="twitterUrl">
+                <template #icon>
+                    <i class="fa-brands fa-x-twitter"></i>
+                </template>
+            </RepositoryLinkButton>
+            <RepositoryLinkButton :url="subredditUrl">
+                <template #icon>
+                    <i class="fa-brands fa-reddit-alien"></i>
+                </template>
+            </RepositoryLinkButton>
+            <UDropdown :items="otherLinks" variant="outlined">
+                <UButton
+                    block
+                    variant="outline"
+                    color="emerald"
+                    label="Other Links"
+                    class="flex justify-center text-white"
+                    :popper="{ arrow: true }"
+                    trailing-icon="i-heroicons-chevron-down-20-solid"
+                />
+                <template #item="{ item }">
+                    <NuxtLink :to="item.url" target="_blank">{{item.label}}</NuxtLink>
+                </template>
+            </UDropdown>
+        </nav>
     </div>
+
     <div>
         <div>header for chart stars</div>
         <div>
@@ -87,16 +130,19 @@ if(!cachedRepositoryData) {
     const singleRepository = await getSingleRepository(currentOwner, currentRepository)
     currentRepositoryData.value = ref(singleRepository).value
 }
+
 /** Array of repository daily updates */
 const repositoryUpdates = await getRepositoryUpdates(currentOwner, currentRepository)
-
-// const extendText =
 
 const name = computed(() => currentRepositoryData.value.coinId?.name)
 const description = computed(() => currentRepositoryData.value.coinId?.description.en)
 const gitDescription = computed(() => currentRepositoryData.value.description)
 const topics = computed(() => currentRepositoryData.value.topics)
-const links = computed(() => currentRepositoryData.value.coinId?.links) // questionable
+const stars = computed(() => currentRepositoryData.value.stars)
+const issues = computed(() => currentRepositoryData.value.open_issues)
+const forks = computed(() => currentRepositoryData.value.forks)
+const subscribers = computed(() => currentRepositoryData.value.subscribers)
+
 const repositoryUrl = computed(() => currentRepositoryData.value._id)
 const homepageUrl = computed(() => {
     return filterOutEmptyStrings(currentRepositoryData.value?.coinId.links.homepage)[0]
@@ -127,8 +173,13 @@ const otherLinks = computed(() => {
         announcement_url
     ]
 
-    return otherLinks.flat()
+    return otherLinks.flat().map(url => [{
+        url,
+        label: getUrlDomainName(url)
+    }])
 })
+
+const imageUrl = computed(() => currentRepositoryData.value.coinId.image.large)
 </script>
 
 <style lang="sass" scoped>
