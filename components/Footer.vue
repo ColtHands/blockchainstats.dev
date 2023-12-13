@@ -1,12 +1,12 @@
 <template>
     <footer class="border-t border-cyan-950">
-        <div class="mx-auto py-5 grid grid-cols-3 items-center text-center w-full sm:w md:w-3/3 lg:w-2/4 xl:w-3/5">
+        <div class="mx-auto py-8 grid grid-cols-3 items-center text-center w-full sm:w md:w-3/3 lg:w-2/4 xl:w-3/5">
             <NuxtLinkExtended to="/">
                 <i class="fa-solid fa-cube text-green-400 text-5xl"></i>
             </NuxtLinkExtended>
             <nav>
                 <p class="text-xs text-gray-500">Links</p>
-                <ul class="flex justify-center gap-3 mt-1">
+                <ul class="flex justify-center gap-3 mt-1 text-sm">
                     <li v-for="{title,path} in useAppConfig().navigationLinks" :key="path">
                         <NuxtLinkExtended :to="path">
                             {{title}}
@@ -19,7 +19,7 @@
                 <NuxtLinkExtended to="https://twitter.com/0xColtHands" class="text-2xl"><i class="fa-brands fa-x-twitter"></i></NuxtLinkExtended>
             </div>
         </div>
-        <div class="border-t border-cyan-950 py-2 text-center text-gray-500 text-sm">
+        <div class="border-t border-cyan-950 pt-4 pb-2 text-center text-gray-500 text-sm">
             Built by Aleksei Karpenko
             •
             <NuxtLink to="https://colthands.dev" class="text-green-400">colthands.dev</NuxtLink>

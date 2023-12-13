@@ -8,7 +8,14 @@ const navigationLinks: NavigationLinks = [
     { title: 'About', path: '/about' }
 ]
 
+/** NuxtUI module reserved app config key */
+const ui = {
+    primary: 'green',
+    gray: 'slate'
+}
+
 export default defineAppConfig({
     coinDataField: 'coinId',
+    ui,
     navigationLinks
 })

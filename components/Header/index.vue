@@ -7,7 +7,7 @@
 
             <HeaderSearchBar class="w-72"></HeaderSearchBar>
 
-            <nav class="flex justify-center gap-4">
+            <nav class="flex justify-center gap-4 text-sm">
                 <NuxtLinkExtended
                     v-for="{title,path} in useAppConfig().navigationLinks"
                     :key="path"

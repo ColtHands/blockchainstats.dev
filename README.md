@@ -44,6 +44,8 @@
 2. [x] request my stats-over-time
 3. [ ] ?? request coingecko data
 4. [ ] ?? request cmc data
+5. [ ] Chart with daily/monthly/weekly updates starts/forks/issues
+
 
 #### `/about` page
 
