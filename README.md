@@ -17,6 +17,7 @@
 * [x] Add UI skeleton loading to tiles
 * [ ] Slap in tracker, preferable posthog
 * [x] Add robots.txt
+  * [ ] Fix robots to allow everything
 * [ ] Add sitemap
 
 ### `/index` page
@@ -41,8 +42,8 @@
 
 1. [x] request single repository
 2. [x] request my stats-over-time
-3. [ ] (probably unnecessary) request coingecko data
-4. [ ] (probably unnecessary) request cmc data
+3. [ ] ?? request coingecko data
+4. [ ] ?? request cmc data
 
 #### `/about` page
 
@@ -56,7 +57,11 @@
 
 ### `/topics` page
 
-* [ ] [BE] Add `get-all-topics` request (with how many repositories have that topic)
+* [x] [BE] Add `get-all-topics` request (with how many repositories have that topic)
+* [ ] [FE] Page with all of the `topics` _"database"_
+  * [ ] Upon Clicking a topic a list of project appears
+  * [ ] ?? Ability to combine topics
+* [ ] [BE] Set topics as separate collection and populate it monthly
 
 ### Considerations for refactoring
 
