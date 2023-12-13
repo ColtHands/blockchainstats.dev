@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     css: ['~/assets/styles/tailwind.css'],
     runtimeConfig: {
         public: {
+            title: 'Blockchain Developer Stats',
             apiUrl: ''
         }
     },

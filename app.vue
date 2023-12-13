@@ -7,13 +7,15 @@
 </template>
 
 <script lang="ts" setup>
+const runtimeConfig = useRuntimeConfig()
+
 useHead({
-    title: 'Blockchain Developer Stats',
+    title: runtimeConfig.public.title,
     meta: [
         {
             hid: 'description',
             name: 'description',
-            content: 'Blockchain Developer Stats'
+            content: runtimeConfig.public.title
         }
     ],
     link: [
