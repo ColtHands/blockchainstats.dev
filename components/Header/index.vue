@@ -1,7 +1,7 @@
 <template>
     <header class="py-6 w-full backdrop-blur border-b border-cyan-950">
         <div class="sm:container sm:mx-auto px-4 flex justify-between items-center">
-            <NuxtLinkExtended class="font-bold text-2xl" title="Blockchain Developer Stats" to="/">
+            <NuxtLinkExtended class="font-bold text-2xl" :title="runtimeConfig.public.title" to="/">
                 <i class="fa-solid fa-cube"></i> BDS
             </NuxtLinkExtended>
 
@@ -24,3 +24,7 @@
         </div>
     </header>
 </template>
+
+<script lang="ts" setup>
+const runtimeConfig = useRuntimeConfig()
+</script>

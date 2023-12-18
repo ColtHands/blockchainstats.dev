@@ -51,7 +51,8 @@
             <p>
                 <ul class="list-disc pl-4">
                     <li>Add social stats: tweets, reddit, facebook, etc</li>
-                    <li>Refactor BE to <code>nitro</code></li>
+                    <li>Add BE -> FE TypeScript support (generate types)</li>
+                    <li>Refactor BackEnd to <code>nitro</code> to support aws lambda</li>
                 </ul>
             </p>
 

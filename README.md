@@ -33,10 +33,8 @@
 * [x] Add ASC DESC sort (cancelled, because after 2-3 pages updates are very tiny)
 * Add `Tile` variants
   * [x] Project
-  * [ ] Small
   * [ ] Extended
-
-* [ ] Add Those `Tile` variants `Extended` and `Small` to `/projects` page
+    * [ ] Add topics tags to tile
 
 #### `/project/[owner]/[repository]` page
 
@@ -46,15 +44,13 @@
 4. [ ] ?? request cmc data
 5. [ ] Chart with daily/monthly/weekly updates starts/forks/issues
 
-
 #### `/about` page
 
-* [ ] Add project description
-* [ ] Add roadmap
-* [ ] Add tech stack
-* [ ] Add BE flowchart
-* [ ] Add follow me section
-* [ ] Prompt to add suggestions via github / twitter(x)
+* [x] Add project description
+* [x] Add roadmap
+* [x] Add tech stack
+* [x] Add follow me section
+* [x] Prompt to add suggestions via github / twitter(x)
 * [ ] Add git badges - to about or to footer (consider)?
 
 ### `/topics` page
@@ -82,7 +78,7 @@
   * [ ] npm
   * [ ] Reddit
   * [ ] Facebook
-* [ ] Consider adding git user stats (hall of fame)
+* [ ] Consider adding git user/developer and their stats
 
 ## Commit tags
 
