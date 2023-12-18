@@ -10,6 +10,7 @@
         :forks="forks"
         :open-issues="openIssues"
         :homepage="homepage"
+        :topics="topics"
     />
     <TileExtended v-if="variant === 'extended'" />
     <TileSmall v-if="variant === 'small'" />
@@ -27,6 +28,7 @@ type ProjectProps = {
     forks: number
     openIssues: number
     homepage: string
+    topics: string[]
 }
 
 type SmallProps = {

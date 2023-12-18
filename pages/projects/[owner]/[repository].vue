@@ -15,9 +15,6 @@
                 <RepositoryStatsBadge title="Issues">
                     <i class="text-xs fa-regular fa-circle-dot"></i> {{issues}}
                 </RepositoryStatsBadge>
-                <!-- <RepositoryStatsBadge title="Subscribers">
-                    <i class="text-xs fa-regular fa-circle-dot"></i> {{subscribers}}
-                </RepositoryStatsBadge> -->
             </div>
 
             <h2 class="line-clamp-4 overflow-hidden leading-snug max-w-2xl mt-4 text-md">
@@ -28,16 +25,7 @@
 
             <ul class="flex gap-2 justify-start mt-4">
                 <li v-for="topic in topics" :key="topic">
-                    <NuxtLink :to="`/topics/${topic}`">
-                        <UButton
-                            color="gray"
-                            variant="solid"
-                            size="sm"
-                            class="whitespace-nowrap rounded-full text-green-400"
-                        >
-                            {{topic}}
-                        </UButton>
-                    </NuxtLink>
+                    <UiTopic :topic="topic" />
                 </li>
             </ul>
         </div>
@@ -141,7 +129,7 @@ const topics = computed(() => currentRepositoryData.value.topics)
 const stars = computed(() => currentRepositoryData.value.stars)
 const issues = computed(() => currentRepositoryData.value.open_issues)
 const forks = computed(() => currentRepositoryData.value.forks)
-const subscribers = computed(() => currentRepositoryData.value.subscribers)
+// const subscribers = computed(() => currentRepositoryData.value.subscribers)
 
 const repositoryUrl = computed(() => currentRepositoryData.value._id)
 const homepageUrl = computed(() => {
@@ -156,7 +144,7 @@ const subredditUrl = computed(() => currentRepositoryData.value.coinId.links.sub
 // TODO
 // const telegramUrl = null
 // TODO
-// const fasebookUrl = null
+// const facebookUrl = null
 
 const otherLinks = computed(() => {
     const homepage = filterOutEmptyStrings(currentRepositoryData.value.coinId.links.homepage)

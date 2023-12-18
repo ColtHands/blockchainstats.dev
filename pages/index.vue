@@ -6,10 +6,15 @@
     <h2 class="text-xl text-center mt-5">
         This website display top blockchain <NuxtLink to="https://github.com/" target="_blank" class="text-green-400">GitHub</NuxtLink> projects and its statistics
     </h2>
-    <SectionTilesStateless />
+    <div class="flex justify-center items-start">
+        <SectionTilesStateless />
+        <SectionTopics />
+    </div>
 </template>
 
 <script lang="ts" setup>
 const runtimeConfig = useRuntimeConfig()
 const title = runtimeConfig.public.title
+
+await useApi().getTopics()
 </script>

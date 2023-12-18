@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center flex-col mt-10 gap-0 w-full sm:w md:w-3/3 lg:w-2/4 xl:w-3/5 mx-auto backdrop-blur border border-green-900 rounded-md">
+    <div class="flex justify-center flex-col mt-10 mx-5 gap-0 w-full sm:w md:w-3/3 lg:w-2/4 xl:w-3/5 backdrop-blur border border-green-900 rounded-md">
         <TileWrap class="rounded-t-md justify-between">
             <div>
                 Top projects by stars this week, for more refined query go to <NuxtLink to="/projects" class="text-green-400">projects</NuxtLink>.

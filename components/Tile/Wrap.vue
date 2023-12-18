@@ -10,7 +10,6 @@
             'flex',
             'gap-10',
             'items-center',
-            'w-full',
             'p-5'
         ]"
     >

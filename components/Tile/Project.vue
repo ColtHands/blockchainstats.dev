@@ -18,11 +18,19 @@
             <p class="line-clamp-2 overflow-hidden max-w-md text-sm mt-1" :title="description">
                 {{description}}
             </p>
+            <div v-if="topics?.length" class="mt-2 flex gap-2">
+                <UiTopic
+                    v-for="topic in topics.slice(0, 4)"
+                    :key="topic"
+                    :topic="topic"
+                    size="xs"
+                />
+            </div>
         </div>
         <div class="ml-auto text-right text-sm flex flex-col gap-1.5 content-center">
-            <div title="stars"><i class="text-xs fa-solid fa-star-half-stroke"></i> {{stars}}</div>
-            <div title="forks"><i class="text-xs fa-solid fa-code-fork"></i> {{forks}}</div>
-            <div title="issues"><i class="text-xs fa-regular fa-circle-dot"></i> {{issues}}</div>
+            <div title="stars" class="whitespace-nowrap"><i class="text-xs fa-solid fa-star-half-stroke"></i> {{stars}}</div>
+            <div title="forks" class="whitespace-nowrap"><i class="text-xs fa-solid fa-code-fork"></i> {{forks}}</div>
+            <div title="issues" class="whitespace-nowrap"><i class="text-xs fa-regular fa-circle-dot"></i> {{issues}}</div>
         </div>
     </TileWrap>
 </template>
@@ -38,6 +46,7 @@ type Props = {
     forks: number
     openIssues: number
     homepage: string
+    topics: string[]
 }
 
 const props = defineProps<Props>()

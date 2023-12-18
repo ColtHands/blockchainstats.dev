@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center flex-col mt-10 gap-0 w-full sm:w md:w-3/3 lg:w-2/4 xl:w-3/5 mx-auto backdrop-blur border border-green-900 rounded-md">
+    <div class="flex justify-center flex-col mt-10 mx-5 gap-0 w-full sm:w md:w-3/3 lg:w-2/4 xl:w-3/5 backdrop-blur border border-green-900 rounded-md">
         <TileWrap class="rounded-t-md justify-between">
             <div>
                 Top {{limit}} projects by {{sortBy || 'stars'}} this {{timeFrame || 'week'}}
@@ -58,6 +58,7 @@
                     :forks="repository?.growth.week.forks"
                     :open-issues="repository.growth.week.open_issues"
                     :homepage="filterOutEmptyStrings(repository.coinId.links.homepage)[0]"
+                    :topics="repository.topics"
                 />
             </template>
         </ClientOnly>
@@ -74,8 +75,6 @@
 </template>
 
 <script lang="ts" setup>
-// TODO Move this state to `/project` route
-
 const sortBy = ref('')
 const limit = ref('')
 const timeFrame = ref('')

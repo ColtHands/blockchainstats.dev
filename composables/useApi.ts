@@ -53,8 +53,17 @@ export default function useApi() {
         return data
     }
 
+    const getTopics = async () => {
+        const { data } = await useFetch(`${baseUrl}/topics`, {
+            key: 'topics'
+        })
+
+        return data
+    }
+
     return {
         getRepositories,
+        getTopics,
         getRepositoriesCount,
         getSingleRepository,
         getRepositoryUpdates
