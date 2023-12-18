@@ -23,7 +23,7 @@
 ### `/index` page
 
 * Sidebar
-  * [ ] Topics list
+  * [x] Topics list
   * [ ] List of most forked repos
 * [ ] Section with some extra info (probably taken from `/about`)
 
@@ -33,16 +33,16 @@
 * [x] Add ASC DESC sort (cancelled, because after 2-3 pages updates are very tiny)
 * Add `Tile` variants
   * [x] Project
-  * [ ] Extended
-    * [ ] Add topics tags to tile
+  * [x] Add topics tags to tile
 
 #### `/project/[owner]/[repository]` page
 
 1. [x] request single repository
 2. [x] request my stats-over-time
-3. [ ] ?? request coingecko data
-4. [ ] ?? request cmc data
-5. [ ] Chart with daily/monthly/weekly updates starts/forks/issues
+3. [ ] Bar Chart with monthly stars increase grouped by year
+4. [ ] Line Chart with overall stars trend
+5. [ ] Area Chart with issues
+6. [ ] Area Chart with forks
 
 #### `/about` page
 
@@ -79,6 +79,7 @@
   * [ ] Reddit
   * [ ] Facebook
 * [ ] Consider adding git user/developer and their stats
+* [ ] Consider to add MR and commit stats (just like git)
 
 ## Commit tags
 

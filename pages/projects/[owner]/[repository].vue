@@ -5,6 +5,7 @@
                 <img :src="imageUrl" class="w-10 h-10" :alt="`{{ name }} logo`" />
                 <h1 class="text-5xl font-semibold">{{name}}</h1>
             </div>
+
             <div class="flex gap-2 mt-2">
                 <RepositoryStatsBadge title="Stars">
                     <i class="text-xs fa-solid fa-star-half-stroke"></i> {{stars}}
@@ -21,7 +22,6 @@
                 <p :title="gitDescription">{{gitDescription}}</p>
                 <p :title="description" v-html="description"></p>
             </h2>
-
 
             <ul class="flex gap-2 justify-start mt-4">
                 <li v-for="topic in topics" :key="topic">
@@ -68,14 +68,16 @@
         </nav>
     </div>
 
-    <div>
+    <!-- <div>
         <div>header for chart stars</div>
         <div>
             chart for git stars over time
         </div>
     </div>
-    <hr>
-    <div class="flex justify-between">
+
+    <hr> -->
+
+    <!-- <div class="flex justify-between">
         <div>
             <div>header for chart issues</div>
             <div>
@@ -85,18 +87,22 @@
         <div>
             <div>header for chart fors</div>
             <div>
-                chart for git fors over time
+                chart for git forks over time
             </div>
         </div>
-    </div>
-    <!-- <pre>name - {{name}}</pre>
-    <pre>description - {{description}}</pre>
-    <pre>gitDescription - {{gitDescription}}</pre>
-    <pre>topics - {{topics}}</pre> -->
+    </div> -->
 
-    <pre>params - {{route.params}}</pre>
-    <pre>currentRepositoryData - {{currentRepositoryData}}</pre>
-    <pre>repositories - {{repositories}}</pre>
+    <div class="mt-10">
+        <RepositoryBarChart :repository-updates="repositoryUpdates">
+            <template #header>
+                <i class="fa-solid fa-star-half-stroke"></i> Repository stars updates
+            </template>
+        </RepositoryBarChart>
+    </div>
+
+    <!-- <pre>params - {{route.params}}</pre> -->
+    <!-- <pre>currentRepositoryData - {{currentRepositoryData}}</pre> -->
+    <!-- <pre>repositories - {{repositories}}</pre> -->
     <pre>updates - {{repositoryUpdates}}</pre>
 </template>
 
