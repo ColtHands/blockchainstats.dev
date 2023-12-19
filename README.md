@@ -71,6 +71,10 @@
 * [ ] Test for `Tile` wrap having correct borders: `first:`, `last:` style tests
 * [ ] Integration or e2e for correct sorting
 
+### Bugs
+
+* [ ] `timeFrame` doesn't work on Stateful tiles
+
 ## Roadmap
 
 * Add other social stats

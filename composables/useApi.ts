@@ -35,7 +35,11 @@ export default function useApi() {
     }
 
     const getRepositoryUpdates = async (owner: string, repository: string) => {
-        const { data } = await useFetch(`${baseUrl}/get-repository-updates/${owner}/${repository}`)
+        const { data } = await useFetch(`${baseUrl}/get-repository-updates/${owner}/${repository}`, {
+            query: {
+                timeFrame: 'month'
+            }
+        })
 
         return data
     }

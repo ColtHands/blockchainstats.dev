@@ -27,14 +27,29 @@
 <script lang="ts" setup>
 import type { ApexOptions } from 'apexcharts'
 
-// const props = defineProps<{repositoryUpdates:any}>()
+const props = defineProps<{ repositoryUpdates: any }>()
 
-// const repositoryUpdates = toRefs(props).repositoryUpdates
-// const stars = repositoryUpdates.value.map(e => e.s)
+const repositoryUpdates = toRefs(props).repositoryUpdates
+
+const monthlyStarsSeries = computed(() => repositoryUpdates.value.slice(1, repositoryUpdates.value.length).map((update:any) => ({
+    x: new Date(update.rawUpdate.createdAt).toLocaleDateString('default', { month: 'short' }),
+    y: update.stars
+})))
+
+/**
+ * @returns `{ '2023': 6 }`
+ */
+const years = repositoryUpdates.value.slice(1, repositoryUpdates.value.length).reduce((acc: any, curr: any) => {
+    const currentYear = new Date(curr.rawUpdate.createdAt).getFullYear()
+    return {
+        ...acc,
+        [currentYear]: acc[currentYear] ? acc[currentYear] + 1 : 1
+    }
+}, {})
+const xaxisGroups = Object.keys(years).map(year => ({ title: year, cols: years[year] }))
 
 const series = [{
-    // data: stars
-    data: [44, 55, 41, 64, 22, 43, 21]
+    data: monthlyStarsSeries.value
 }]
 
 const chartOptions: ApexOptions = {
@@ -90,7 +105,14 @@ const chartOptions: ApexOptions = {
         intersect: false
     },
     xaxis: {
-        categories: [2001, 2002, 2003, 2004, 2005, 2006, 2007]
+        type: 'category',
+        group: {
+            style: {
+                fontSize: '10px',
+                fontWeight: 700
+            },
+            groups: xaxisGroups
+        }
     },
     yaxis: {
         opposite: true,
