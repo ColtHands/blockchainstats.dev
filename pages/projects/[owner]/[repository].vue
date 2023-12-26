@@ -68,42 +68,26 @@
         </nav>
     </div>
 
-    <!-- <div>
-        <div>header for chart stars</div>
-        <div>
-            chart for git stars over time
-        </div>
-    </div>
-
-    <hr> -->
-
-    <!-- <div class="flex justify-between">
-        <div>
-            <div>header for chart issues</div>
-            <div>
-                chart for git issues over time
-            </div>
-        </div>
-        <div>
-            <div>header for chart fors</div>
-            <div>
-                chart for git forks over time
-            </div>
-        </div>
-    </div> -->
-
-    <div class="mt-10">
-        <RepositoryBarChart :repository-updates="repositoryUpdates">
+    <!-- Charts -->
+    <div class="mt-10 grid grid-cols-2 gap-5">
+        <RepositoryBarChart :repository-updates="repositoryUpdates" class="col-span-2">
             <template #header>
-                <i class="fa-solid fa-star-half-stroke"></i> Repository stars updates
+                <i class="fa-solid fa-star-half-stroke"></i> Stars updates each month
             </template>
         </RepositoryBarChart>
-    </div>
 
-    <!-- <pre>params - {{route.params}}</pre> -->
-    <!-- <pre>currentRepositoryData - {{currentRepositoryData}}</pre> -->
-    <!-- <pre>repositories - {{repositories}}</pre> -->
-    <pre>updates - {{repositoryUpdates}}</pre>
+        <RepositoryIssuesAreaChart :repository-updates="repositoryUpdates">
+            <template #header>
+                <i class="fa-solid fa-star-half-stroke"></i> Open issues updates
+            </template>
+        </RepositoryIssuesAreaChart>
+
+        <RepositoryForksBarChart :repository-updates="repositoryUpdates">
+            <template #header>
+                <i class="fa-solid fa-star-half-stroke"></i> Forks updates each month
+            </template>
+        </RepositoryForksBarChart>
+    </div>
 </template>
 
 <script lang="ts" setup>
