@@ -4,7 +4,7 @@
         <h1>{{title}}</h1>
     </div>
     <h2 class="text-xl text-center mt-5">
-        This website display top blockchain <NuxtLink to="https://github.com/" target="_blank" class="text-green-400">GitHub</NuxtLink> projects and its statistics
+        This website displays top blockchain <NuxtLink to="https://github.com/" target="_blank" class="text-green-400">GitHub</NuxtLink> projects and its statistics
     </h2>
     <div class="flex justify-center items-start">
         <SectionTilesStateless />

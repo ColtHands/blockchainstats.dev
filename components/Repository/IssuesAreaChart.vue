@@ -8,7 +8,7 @@
             </div>
         </template>
         <p class="text-rose-500">
-            Currently for some reason GitHub API send incorrect issues count.
+            Currently for some reason GitHub API sends incorrect issues count.
         </p>
         <ClientOnly>
             <div class="relative mt-4">
