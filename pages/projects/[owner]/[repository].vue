@@ -78,13 +78,13 @@
 
         <RepositoryIssuesAreaChart :repository-updates="repositoryUpdates">
             <template #header>
-                <i class="fa-solid fa-star-half-stroke"></i> Open issues updates
+                <i class="fa-regular fa-circle-dot"></i> Open issues updates
             </template>
         </RepositoryIssuesAreaChart>
 
         <RepositoryForksBarChart :repository-updates="repositoryUpdates">
             <template #header>
-                <i class="fa-solid fa-star-half-stroke"></i> Forks updates each month
+                <i class="fa-solid fa-code-fork"></i> Forks updates each month
             </template>
         </RepositoryForksBarChart>
     </div>
