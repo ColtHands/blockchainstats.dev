@@ -1,7 +1,7 @@
 <template>
     <div class="mt-10 border border-green-900 rounded-md max-w-xs">
         <TileWrap>
-            <NuxtLinkExtended to="/topics">Topics</NuxtLinkExtended>
+            <NuxtLinkExtended :always-on="true" to="/topics">Topics</NuxtLinkExtended>
         </TileWrap>
         <TileWrap>
             <div v-if="topics.length" class="flex justify-start flex-wrap gap-2">
