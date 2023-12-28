@@ -59,7 +59,10 @@ export default function useApi() {
 
     const getTopics = async () => {
         const { data } = await useFetch(`${baseUrl}/topics`, {
-            key: 'topics'
+            key: 'topics',
+            query: {
+                limit: 20
+            }
         })
 
         return data

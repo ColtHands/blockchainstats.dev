@@ -24,7 +24,6 @@
 
 * Sidebar
   * [x] Topics list
-  * [ ] List of most forked repos
 * [ ] Section with some extra info (probably taken from `/about`)
 
 #### `/projects` page
@@ -39,10 +38,10 @@
 
 1. [x] request single repository
 2. [x] request my stats-over-time
-3. [ ] Bar Chart with monthly stars increase grouped by year
-4. [ ] Line Chart with overall stars trend
-5. [ ] Area Chart with issues
-6. [ ] Area Chart with forks
+3. [x] Bar Chart with monthly stars increase grouped by year
+4. [x] Area Chart with issues
+5. [x] Area Chart with forks
+6. [ ] Line Chart with overall stars/forks/open_issues trend
 
 #### `/about` page
 
@@ -63,7 +62,7 @@
 
 ### Considerations for refactoring
 
-* [ ] Consider refactoring Stateful Tiles Section from refs to pinia
+* [x] Consider refactoring Stateful Tiles Section from refs to pinia
 * [ ] Consider using Nuxt UI internal layouts: `card` or `container`
 
 ### Tests

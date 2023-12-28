@@ -1,3 +1,0 @@
-<template>
-    topics page
-</template>

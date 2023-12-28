@@ -10,9 +10,18 @@
             'flex',
             'gap-10',
             'items-center',
-            'p-5'
+            ...[props.withPadding ? 'p-5' : '']
         ]"
     >
         <slot />
     </div>
 </template>
+
+<script lang="ts" setup>
+const props = defineProps({
+    withPadding: {
+        type: Boolean,
+        default: true
+    }
+})
+</script>

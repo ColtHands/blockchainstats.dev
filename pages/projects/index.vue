@@ -4,8 +4,8 @@
         <h1>Total {{repositoriesCount ?? '...'}} projects in database</h1>
     </div>
     <div class="flex justify-center items-start">
-        <SectionTopics />
         <SectionTilesStateful />
+        <SectionTopics />
     </div>
 </template>
 
