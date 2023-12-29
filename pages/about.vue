@@ -43,7 +43,11 @@
 
             <p class="text-xl font-medium">Found this project useful?</p>
             <p>You can <NuxtLinkExtended always-on to="https://www.buymeacoffee.com/colthands" target="_blank">buy-me-coffee</NuxtLinkExtended> 🙂</p>
-
+            <div>
+                <a href="https://www.buymeacoffee.com/colthands" class="w-auto inline-block">
+                    <img class="h-10 w-auto" src="https://img.buymeacoffee.com/button-api/?text=Buy my a coffee&emoji=❤️&slug=colthands&button_colour=BD5FFF&font_colour=ffffff&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00" />
+                </a>
+            </div>
 
             <br>
 

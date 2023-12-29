@@ -57,11 +57,11 @@ export default function useApi() {
         return data
     }
 
-    const getTopics = async () => {
+    const getTopics = async (limit = 20) => {
         const { data } = await useFetch(`${baseUrl}/topics`, {
             key: 'topics',
             query: {
-                limit: 20
+                limit
             }
         })
 
