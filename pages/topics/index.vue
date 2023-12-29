@@ -19,7 +19,7 @@
             </div>
         </TileWrap>
         <TileWrap v-for="topic in topics" :key="topic[0]" :with-padding="false">
-            <NuxtLinkExtended class="flex items-center gap-2 w-full p-5" :to="`/topics/${topic[0]}`">
+            <NuxtLinkExtended class="flex items-center gap-2 w-full p-5" :to="`/projects?topics=${topic[0]}`">
                 <span>{{topic[0]}}</span>
                 <UBadge size="xs" color="pink">{{topic[1]}}</UBadge>
             </NuxtLinkExtended>

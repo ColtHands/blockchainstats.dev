@@ -4,7 +4,7 @@
         variant="solid"
         :size="props.size ?? 'sm'"
         class="whitespace-nowrap rounded-full text-green-400"
-        :to="`/topics/${props.topic}`"
+        :to="`/projects?topics=${topic[0]}`"
     >
         <slot v-if="slots._" />
         <template v-else>

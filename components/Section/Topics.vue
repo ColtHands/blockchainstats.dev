@@ -12,7 +12,7 @@
                     v-for="topic in topics"
                     :key="topic[0]"
                     :topic="topic[0]"
-                    :to="`/topics/${topic[0]}`"
+                    :to="`/projects?topics=${topic[0]}`"
                     class="px-3 py-2 flex justify-between border-b last:border-0 border-teal-800 gap-10 w-60 hover:text-green-400"
                 >
                     <span class="text-inherit">{{topic[0]}}</span>
