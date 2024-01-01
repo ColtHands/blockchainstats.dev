@@ -48,7 +48,6 @@
                 <Tile
                     v-for="repository in repositories"
                     :key="repository.id"
-                    variant="project"
                     :avatar-url="repository.avatar_url"
                     :name="repository.repository"
                     :owner="repository.owner"
