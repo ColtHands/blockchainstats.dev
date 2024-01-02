@@ -70,11 +70,20 @@ export default function useApi() {
         return data
     }
 
+    const getTopicsCount = async () => {
+        const { data } = await useFetch(`${baseUrl}/topics/count`, {
+            key: 'topicsCount'
+        })
+
+        return data
+    }
+
     return {
         getRepositories,
         getTopics,
         getRepositoriesCount,
         getSingleRepository,
+        getTopicsCount,
         getRepositoryUpdates
     }
 }

@@ -2,7 +2,7 @@
     <div>
         <div class="text-5xl font-bold mt-8 flex justify-start gap-5">
             <i class="fa-solid fa-tags"></i>
-            <h1>1234 topics in database</h1>
+            <h1>{{topicsCount}} topics in database</h1>
         </div>
         <h2 class="text-xl mt-5">
             Those are tags, but GitHub names these entities topics, we're calling them topics to be consistent.
@@ -68,15 +68,19 @@
 <script setup lang="ts">
 const page = ref(1)
 const topics = ref<any[]>([])
+const { getTopicsCount, getTopics } = useApi()
+const topicsCount = await getTopicsCount()
 
-const getTopics = async () => {
+console.log('topicsCount', unref(topicsCount))
+
+const getTopicsLocal = async () => {
     const limit = 10
     const offset = (unref(page) * limit) - limit
-    const topicsResult = await useApi().getTopics(limit, offset) as any
+    const topicsResult = await getTopics(limit, offset) as any
     topics.value = unref(topicsResult)
 }
 
-getTopics()
+getTopicsLocal()
 
-watch([page], getTopics)
+watch([page], getTopicsLocal)
 </script>
