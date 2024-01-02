@@ -11,7 +11,7 @@
                 <NuxtLink
                     v-for="topic in topics"
                     :key="topic._id"
-                    :topic="topic._id"
+                    :title="topic.description"
                     :to="`/projects?topics=${topic._id}`"
                     class="px-3 py-2 flex justify-between border-b last:border-0 border-teal-800 gap-10 w-60 hover:text-green-400"
                 >
