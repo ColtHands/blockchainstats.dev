@@ -55,7 +55,7 @@
             <div>
                 <UPagination
                     v-model="page"
-                    :total="100"
+                    :total="topicsCount || 100"
                     size="md"
                     show-last
                     show-first
@@ -69,9 +69,7 @@
 const page = ref(1)
 const topics = ref<any[]>([])
 const { getTopicsCount, getTopics } = useApi()
-const topicsCount = await getTopicsCount()
-
-console.log('topicsCount', unref(topicsCount))
+const topicsCount = await getTopicsCount() as Ref<number>
 
 const getTopicsLocal = async () => {
     const limit = 10
