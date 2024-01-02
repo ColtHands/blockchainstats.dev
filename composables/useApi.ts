@@ -4,13 +4,22 @@ export default function useApi() {
     const port = 3000
     const baseUrl = `${protocol}://${rawUrl}:${port}`
 
-    type GetRepositoriesFn = (includeCoinData?: boolean, limit?: number, timeFrame?: string, sortBy?: string, page?: number) => Promise<unknown>
+    type GetRepositoriesFn = (
+        includeCoinData?: boolean,
+        limit?: number,
+        timeFrame?: string,
+        sortBy?:
+        string,
+        page?: number,
+        topics?:  unknown
+    ) => Promise<unknown>
     const getRepositories: GetRepositoriesFn = async (
         includeCoinData = false,
         limit = 10,
         timeFrame = 'week',
         sortBy = 'stars',
-        page = 1
+        page = 1,
+        topics
     ) => {
         const offset = page ? ((page - 1) * limit) : 1
 
@@ -21,7 +30,8 @@ export default function useApi() {
                 timeFrame,
                 sortBy,
                 limit,
-                offset
+                offset,
+                topics
             }
         })
 

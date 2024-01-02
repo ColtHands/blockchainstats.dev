@@ -80,6 +80,8 @@ const timeFrame = ref('')
 const loading = ref(false)
 const repositories = ref([]) as Ref<Array<any>>
 const page = ref(1)
+const route = useRoute()
+const rawTopics = route.query.topics
 
 const limitComputed = unref(computed(() => unref(limit) === '' ? 10 : parseInt(unref(limit))))
 const timeFrameComputed = unref(computed(() => unref(timeFrame) || 'week'))
@@ -93,7 +95,8 @@ const fetchRepos = async () => {
         limitComputed,
         timeFrameComputed,
         sortByComputed,
-        unref(page)
+        unref(page),
+        rawTopics
     ) as any
 
     loading.value = false
