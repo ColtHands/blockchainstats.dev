@@ -10,13 +10,13 @@
             <div class="flex flex-col justify-start flex-wrap">
                 <NuxtLink
                     v-for="topic in topics"
-                    :key="topic[0]"
-                    :topic="topic[0]"
-                    :to="`/projects?topics=${topic[0]}`"
+                    :key="topic._id"
+                    :topic="topic._id"
+                    :to="`/projects?topics=${topic._id}`"
                     class="px-3 py-2 flex justify-between border-b last:border-0 border-teal-800 gap-10 w-60 hover:text-green-400"
                 >
-                    <span class="text-inherit">{{topic[0]}}</span>
-                    <span class="text-sm text-gray-400">{{topic[1]}}</span>
+                    <span class="text-inherit">{{topic.display_name || topic._id}}</span>
+                    <span class="text-sm text-gray-400">{{topic.repositories.length}}</span>
                 </NuxtLink>
             </div>
         </TileWrap>

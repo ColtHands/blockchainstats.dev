@@ -16,7 +16,9 @@
                 </NuxtLink>
             </div>
             <p class="line-clamp-2 overflow-hidden max-w-md text-sm mt-1">
-                {{description}}
+                <ClientOnly>
+                    {{description}}
+                </ClientOnly>
             </p>
             <div v-if="topics?.length" class="mt-2 flex gap-2">
                 <UiTopic
@@ -36,6 +38,7 @@
 </template>
 
 <script lang="ts" setup>
+// TODO Figure out why <p>{{description}}</p> has "Hydration text mismatch" and needs <ClientOnly> component
 type Props = {
     avatarUrl: string
     name: string
