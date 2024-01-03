@@ -101,7 +101,7 @@ const { getRepositoryUpdates, getSingleRepository } = useApi()
  * Cached data (a list of repositories) received from `repositories` fetch from `/index` or `/projects` pages
  */
 const repositories = useNuxtData('repositories')
-const cachedRepositoryData = repositories.data.value?.find(repo => repo.owner === route.params.owner && repo.repository === route.params.repository)
+const cachedRepositoryData = repositories.data.value?.find((repo: any) => repo.owner === route.params.owner && repo.repository === route.params.repository)
 const currentRepositoryData = ref(cachedRepositoryData)
 
 if(!cachedRepositoryData) {

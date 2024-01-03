@@ -1,3 +1,5 @@
+import type { SearchParameters } from 'ofetch'
+
 export default function useApi() {
     const rawUrl = useRuntimeConfig().public.apiUrl
     const protocol = 'http'
@@ -11,7 +13,7 @@ export default function useApi() {
         sortBy?:
         string,
         page?: number,
-        topics?:  unknown
+        topics?: unknown
     ) => Promise<unknown>
     const getRepositories: GetRepositoriesFn = async (
         includeCoinData = false,
@@ -22,17 +24,21 @@ export default function useApi() {
         topics
     ) => {
         const offset = page ? ((page - 1) * limit) : 1
+        const query: SearchParameters  = {
+            includeCoinData,
+            timeFrame,
+            sortBy,
+            limit,
+            offset
+        }
+
+        if(topics) {
+            query['topics'] = topics
+        }
 
         const { data } = await useFetch(`${baseUrl}/get-repositories`, {
             key: 'repositories',
-            query: {
-                includeCoinData,
-                timeFrame,
-                sortBy,
-                limit,
-                offset,
-                topics
-            }
+            query
         })
 
         return data

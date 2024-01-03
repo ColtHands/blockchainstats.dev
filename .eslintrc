@@ -15,6 +15,7 @@
         "watch": "readonly",
         "unref": "readonly",
         "computed": "readonly",
+        "watchEffect": "readonly",
         "useSlots": "readonly",
         "ref": "readonly"
     },

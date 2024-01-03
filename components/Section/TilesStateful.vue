@@ -74,20 +74,20 @@
 </template>
 
 <script lang="ts" setup>
+const route = useRoute()
+
 const sortBy = ref('')
 const limit = ref('')
 const timeFrame = ref('')
 const loading = ref(false)
 const repositories = ref([]) as Ref<Array<any>>
 const page = ref(1)
-const route = useRoute()
-const rawTopics = route.query.topics
 
 const limitComputed = unref(computed(() => unref(limit) === '' ? 10 : parseInt(unref(limit))))
 const timeFrameComputed = unref(computed(() => unref(timeFrame) || 'week'))
 const sortByComputed = unref(computed(() => unref(sortBy) || 'stars'))
 
-const fetchRepos = async () => {
+const fetchRepos = async (rawTopics: unknown) => {
     loading.value = true
 
     const repos = await useApi().getRepositories(
@@ -103,7 +103,9 @@ const fetchRepos = async () => {
     repositories.value = unref(repos)
 }
 
-await fetchRepos()
 
-watch([sortBy, limit, timeFrame, page], fetchRepos)
+watch([sortBy, limit, timeFrame, page, () => route.query.topics], values => {
+    const topics = values[4]
+    fetchRepos(topics)
+}, { immediate: true })
 </script>

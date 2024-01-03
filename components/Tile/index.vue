@@ -1,7 +1,17 @@
 <template>
     <TileWrap>
         <div>
-            <UAvatar size="xl" :src="avatarUrl" class="h-20 w-20" />
+            <UAvatar
+                v-if="avatarUrl"
+                size="xl"
+                :src="avatarUrl"
+                class="h-20 w-20"
+            />
+            <USkeleton
+                v-else
+                :ui="{ rounded: 'rounded-full' }"
+                class="h-20 w-20"
+            />
         </div>
         <div>
             <div class="flex gap-2 justify-start items-center">
@@ -40,7 +50,7 @@
 <script lang="ts" setup>
 // TODO Figure out why <p>{{description}}</p> has "Hydration text mismatch" and needs <ClientOnly> component
 type Props = {
-    avatarUrl: string
+    avatarUrl?: string
     name: string
     owner: string
     url: string

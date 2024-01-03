@@ -12,8 +12,8 @@
                     v-for="topic in topics"
                     :key="topic._id"
                     :title="topic.description"
-                    :to="`/projects?topics=${topic._id}`"
-                    class="px-3 py-2 flex justify-between border-b last:border-0 border-teal-800 gap-10 w-60 hover:text-green-400"
+                    :to="topic._id === topicsRef ? '/projects' : `/projects?topics=${topic._id}`"
+                    :class="['px-3', 'py-2', 'flex', 'justify-between', 'border-b', 'last:border-0', 'border-teal-800', 'gap-10', 'w-60', { 'hover:text-green-400': topic._id !== topicsRef }, { 'text-red-400': topic._id === topicsRef }]"
                 >
                     <span class="text-inherit">{{topic.display_name || topic._id}}</span>
                     <span class="text-sm text-gray-400">{{topic.repositories.length}}</span>
@@ -26,4 +26,10 @@
 <script lang="ts" setup>
 const topicsResult = useNuxtData('topics')
 const topics = topicsResult.data.value
+const route = useRoute()
+const topicsRef: Ref<unknown> = ref(route.query.topics)
+
+watch(() => route.query.topics, topicsFromQuery => {
+    topicsRef.value = topicsFromQuery
+})
 </script>
