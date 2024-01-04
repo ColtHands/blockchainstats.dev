@@ -28,7 +28,7 @@
                         class="cursor-default"
                         :title="`${topic.repositories.length} total repositories under this topic`"
                     >
-                        {{topic.repositories.length}}
+                        {{topic.repositories?.length}}
                     </UBadge>
                 </div>
 

@@ -1,11 +1,6 @@
 import type { SearchParameters } from 'ofetch'
 
 export default function useApi() {
-    const rawUrl = useRuntimeConfig().public.apiUrl
-    const protocol = 'http'
-    const port = 3000
-    const baseUrl = `${protocol}://${rawUrl}:${port}`
-
     type GetRepositoriesFn = (
         includeCoinData?: boolean,
         limit?: number,
@@ -36,7 +31,7 @@ export default function useApi() {
             query['topics'] = topics
         }
 
-        const { data } = await useFetch(`${baseUrl}/get-repositories`, {
+        const { data } = await useFetch('/api/remoteApiProxy/get-repositories', {
             key: 'repositories',
             query
         })
@@ -45,13 +40,13 @@ export default function useApi() {
     }
 
     const getRepositoriesCount = async () => {
-        const { data } = await useFetch<number>(`${baseUrl}/count-repositories`)
+        const { data } = await useFetch<number>('/api/remoteApiProxy/count-repositories')
 
         return data
     }
 
     const getRepositoryUpdates = async (owner: string, repository: string) => {
-        const { data } = await useFetch(`${baseUrl}/get-repository-updates/${owner}/${repository}`, {
+        const { data } = await useFetch(`/api/remoteApiProxy/get-repository-updates/${owner}/${repository}`, {
             query: {
                 timeFrame: 'month'
             }
@@ -61,7 +56,7 @@ export default function useApi() {
     }
 
     const getSingleRepository = async (owner: string, repository: string) => {
-        const { data } = await useFetch(`${baseUrl}/get-single-repository`, {
+        const { data } = await useFetch('/api/remoteApiProxy/get-single-repository', {
             key: `${owner}/${repository}`,
             query: {
                 owner,
@@ -74,7 +69,7 @@ export default function useApi() {
     }
 
     const getTopics = async (limit = 20, offset = 0) => {
-        const { data } = await useFetch(`${baseUrl}/topics`, {
+        const { data } = await useFetch('/api/remoteApiProxy/topics', {
             key: 'topics',
             query: {
                 limit,
@@ -87,7 +82,7 @@ export default function useApi() {
     }
 
     const getTopicsCount = async () => {
-        const { data } = await useFetch(`${baseUrl}/topics/count`, {
+        const { data } = await useFetch('/api/remoteApiProxy/topics/count', {
             key: 'topicsCount'
         })
 

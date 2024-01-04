@@ -1,11 +1,14 @@
-import { NuxtConfig, defineNuxtConfig } from 'nuxt/config'
+import { type NuxtConfig, defineNuxtConfig } from 'nuxt/config'
 
 type NuxtConfigExtended = NuxtConfig & {
     tailwindcss: Record<string, unknown>
 }
 
+const isDevEnv = process.env.NODE_ENV === 'development'
+const remoteApiUrl = process.env.NUXT_PRIVATE_API_URL
+
 export default defineNuxtConfig({
-    devtools: { enabled: true },
+    devtools: { enabled: isDevEnv },
     modules: [
         '@nuxt/ui',
         '@nuxtjs/tailwindcss'
@@ -16,8 +19,10 @@ export default defineNuxtConfig({
     css: ['~/assets/styles/tailwind.css'],
     runtimeConfig: {
         public: {
-            title: 'Blockchain Developer Stats',
-            apiUrl: ''
+            title: 'Blockchain Developer Stats'
+        },
+        private: {
+            remoteApiUrl
         }
     },
     build: {

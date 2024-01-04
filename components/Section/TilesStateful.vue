@@ -103,7 +103,6 @@ const fetchRepos = async (rawTopics: unknown) => {
     repositories.value = unref(repos)
 }
 
-
 watch([sortBy, limit, timeFrame, page, () => route.query.topics], values => {
     const topics = values[4]
     fetchRepos(topics)
