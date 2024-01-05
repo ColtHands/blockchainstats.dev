@@ -78,7 +78,5 @@ const getTopicsLocal = async () => {
     topics.value = unref(topicsResult)
 }
 
-getTopicsLocal()
-
-watch([page], getTopicsLocal)
+watch([page], getTopicsLocal, { immediate: true })
 </script>
