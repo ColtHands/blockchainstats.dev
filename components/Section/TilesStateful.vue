@@ -65,8 +65,8 @@
             <UPagination
                 v-model="page"
                 size="md"
-                :total="100"
-                :show-last="false"
+                :total="count || 100"
+                show-last
                 show-first
             />
         </TileWrap>
@@ -75,6 +75,7 @@
 
 <script lang="ts" setup>
 const route = useRoute()
+const count = useNuxtData('topicsCount').data
 
 const sortBy = ref('')
 const limit = ref('')
