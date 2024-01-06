@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
     safelist: [
@@ -13,6 +14,10 @@ export default {
         './nuxt.config.{js,ts}'
     ],
     theme: {
+        screens: {
+            xs: '480px',
+            ...defaultTheme.screens
+        },
         extend: {
             colors: {
                 emerald: {
