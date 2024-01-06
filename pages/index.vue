@@ -1,14 +1,14 @@
 <template>
-    <div class="text-5xl font-bold mt-8 flex justify-center gap-5">
-        <i class="fa-solid fa-cube"></i>
+    <div class="text-4xl max-md:text-3xl lg:text-5xl font-bold mt-8 flex md:justify-center gap-5">
+        <i class="fa-solid fa-cube max-sm:hidden"></i>
         <h1>{{title}}</h1>
     </div>
 
-    <h2 class="text-xl text-center mt-5">
+    <h2 class="text-xl md:text-center mt-5">
         This website displays top blockchain <NuxtLink to="https://github.com/" target="_blank" class="text-green-400">GitHub</NuxtLink> projects and its statistics
     </h2>
 
-    <div class="flex justify-center items-start">
+    <div class="flex max-md:flex-col justify-center items-start">
         <SectionTilesStateless />
         <SectionTopics />
     </div>
