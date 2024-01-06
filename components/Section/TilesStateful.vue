@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center flex-col mt-10 mx-5 gap-0 w-full sm:w md:w-3/3 lg:w-2/4 xl:w-3/5 backdrop-blur border border-green-900 rounded-md">
+    <UiTileSectionWrap>
         <TileWrap class="rounded-t-md justify-between">
             <div>
                 Top {{limit}} projects by {{sortBy || 'stars'}} this {{timeFrame || 'week'}}
@@ -70,7 +70,7 @@
                 show-first
             />
         </TileWrap>
-    </div>
+    </UiTileSectionWrap>
 </template>
 
 <script lang="ts" setup>
