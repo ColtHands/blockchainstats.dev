@@ -1,8 +1,9 @@
 <template>
-    <div class="text-5xl font-bold mt-8 flex justify-center gap-5">
+    <UiPageTitleWrap>
         <i class="fa-solid fa-chart-bar"></i>
         <h1>Total {{repositoriesCount ?? '...'}} projects in database</h1>
-    </div>
+    </UiPageTitleWrap>
+
     <div class="flex justify-center items-start">
         <SectionTilesStateful />
         <SectionTopics />
