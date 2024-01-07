@@ -1,6 +1,6 @@
 <template>
     <UiTileSectionWrap>
-        <TileWrap class="rounded-t-md justify-between">
+        <TileWrap class="rounded-t-md justify-between max-md:flex-col max-md:items-start max-md:gap-2">
             <div>
                 Top {{limit}} projects by {{sortBy || 'stars'}} this {{timeFrame || 'week'}}
             </div>

@@ -4,7 +4,8 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 export default {
     safelist: [
         'text-green-400',
-        'hover:text-green-400'
+        'hover:text-green-400',
+        'sm:hidden'
     ],
     content: [
         './components/**/*.{js,vue,ts}',

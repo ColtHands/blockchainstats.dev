@@ -1,22 +1,23 @@
 <template>
-    <TileWrap>
-        <div>
+    <TileWrap class="flex max-sm:flex-col max-sm:gap-2 max-sm:items-start">
+        <NuxtLink :to="`/projects/${owner}/${name}`">
             <UAvatar
                 v-if="avatarUrl"
                 size="xl"
                 :src="avatarUrl"
-                class="h-20 w-20"
+                class="max-sm:hidden"
             />
-            <USkeleton
-                v-else
-                :ui="{ rounded: 'rounded-full' }"
-                class="h-20 w-20"
-            />
-        </div>
+        </NuxtLink>
         <div>
-            <div class="flex gap-2 justify-start items-center">
-                <NuxtLink class="text-green-400" :to="`/projects/${owner}/${name}`">
-                    <h3 class="text-xl">{{name}}</h3>
+            <div class="flex gap-2 justify-start items-center flex-wrap">
+                <NuxtLink class="text-green-400 flex justify-start gap-2" :to="`/projects/${owner}/${name}`">
+                    <UAvatar
+                        v-if="avatarUrl"
+                        size="xs"
+                        :src="avatarUrl"
+                        class="sm:hidden"
+                    />
+                    <h3 class="text-xl whitespace-nowrap">{{name}}</h3>
                 </NuxtLink>
                 <NuxtLink :to="url" target="_blank">
                     <i class="fa-brands fa-github"></i>
@@ -30,16 +31,22 @@
                     {{description}}
                 </ClientOnly>
             </p>
-            <div v-if="topics?.length" class="mt-2 flex gap-2">
+            <div v-if="topics?.length" class="mt-2 flex gap-2 max-xs:hidden">
                 <UiTopic
-                    v-for="topic in topics.slice(0, 4)"
+                    v-for="topic in visibleTopics"
                     :key="topic"
                     :topic="topic"
                     size="xs"
                 />
+                <UiTopic
+                    v-if="topics.length > topicsVisibleLength"
+                    size="sm"
+                >
+                    <span>+{{topics.length - topicsVisibleLength}}</span>
+                </UiTopic>
             </div>
         </div>
-        <div class="ml-auto text-right text-sm flex flex-col gap-1.5 content-center">
+        <div class="sm:ml-auto text-right text-sm flex justify-start max-sm:w-full sm:flex-col max-sm:gap-3 gap-1.5 sm:content-center">
             <div title="stars" class="whitespace-nowrap"><i class="text-xs fa-solid fa-star-half-stroke"></i> {{stars}}</div>
             <div title="forks" class="whitespace-nowrap"><i class="text-xs fa-solid fa-code-fork"></i> {{forks}}</div>
             <div title="issues" class="whitespace-nowrap"><i class="text-xs fa-regular fa-circle-dot"></i> {{issues}}</div>
@@ -64,6 +71,8 @@ type Props = {
 
 const props = defineProps<Props>()
 
+const topicsVisibleLength = 3
+const visibleTopics = computed(() => props.topics?.length ? props.topics.slice(0, topicsVisibleLength) : [])
 const stars = computed(() => addPlusMinus(props.stars))
 const forks = computed(() => addPlusMinus(props.forks))
 const issues = computed(() => addPlusMinus(props.openIssues))

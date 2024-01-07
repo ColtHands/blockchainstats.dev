@@ -4,7 +4,7 @@
         <h1>Total {{repositoriesCount ?? '...'}} projects in database</h1>
     </UiPageTitleWrap>
 
-    <div class="flex justify-center items-start">
+    <div class="flex max-lg:flex-col justify-center items-start">
         <SectionTilesStateful />
         <SectionTopics />
     </div>
