@@ -78,8 +78,6 @@ const route = useRoute()
 const { getTopicsCount } = useApi()
 const count = ref(100)
 
-count.value = (await getTopicsCount() as Ref<number>).value
-
 const sortBy = ref('')
 const limit = ref('')
 const timeFrame = ref('')
@@ -106,6 +104,8 @@ const fetchRepos = async (rawTopics: unknown) => {
     loading.value = false
     repositories.value = unref(repos)
 }
+
+count.value = (await getTopicsCount() as Ref<number>).value
 
 watch([sortBy, limit, timeFrame, page, () => route.query.topics], values => {
     const topics = values[4]

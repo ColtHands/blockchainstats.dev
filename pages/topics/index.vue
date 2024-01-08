@@ -29,7 +29,7 @@
 
         <template v-else>
             <TileWrap v-for="topic in topics" :key="topic._id" :with-padding="false">
-                <div class="p-5 w-1/2">
+                <div class="p-5 w-1/2 max-sm:w-full">
                     <div class="flex items-center gap-2">
                         <NuxtLinkExtended :to="`/projects?topics=${topic._id}`" always-on>{{topic.display_name || topic._id}}</NuxtLinkExtended>
                         <UBadge
@@ -50,7 +50,7 @@
                     </p>
                 </div>
 
-                <div class="flex justify-end gap-2 w-1/2 p-5">
+                <div class="flex justify-end gap-2 w-1/2 p-5 max-sm:hidden">
                     <NuxtLink
                         v-for="repo in topic.repositories.slice(0, 5)"
                         :key="repo.repository"
@@ -63,13 +63,13 @@
             </TileWrap>
         </template>
 
-        <TileWrap class="justify-end p-5">
+        <TileWrap class="justify-end p-5 max-">
             <UPagination
                 v-model="page"
                 :total="topicsCount || 100"
                 size="md"
-                show-last
-                show-first
+                class="max-xs:mx-auto"
+                :max="5"
             />
         </TileWrap>
     </div>
