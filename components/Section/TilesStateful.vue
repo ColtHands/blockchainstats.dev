@@ -4,7 +4,7 @@
             <div>
                 Top {{limit}} projects by {{sortBy || 'stars'}} this {{timeFrame || 'week'}}
             </div>
-            <div class="flex gap-2">
+            <div class="flex gap-2 max-xs:flex-col">
                 <USelect
                     v-model="timeFrame"
                     placeholder="Time frame"
@@ -65,9 +65,9 @@
             <UPagination
                 v-model="page"
                 size="md"
-                :total="count || 100"
-                show-last
-                show-first
+                :total="count"
+                :max="5"
+                class="max-xs:mx-auto"
             />
         </TileWrap>
     </UiTileSectionWrap>
@@ -75,7 +75,10 @@
 
 <script lang="ts" setup>
 const route = useRoute()
-const count = useNuxtData('topicsCount').data
+const { getTopicsCount } = useApi()
+const count = ref(100)
+
+count.value = (await getTopicsCount() as Ref<number>).value
 
 const sortBy = ref('')
 const limit = ref('')
