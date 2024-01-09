@@ -8,10 +8,10 @@
         This website displays top blockchain <NuxtLink to="https://github.com/" target="_blank" class="text-green-400">GitHub</NuxtLink> projects and its statistics
     </h2>
 
-    <div class="flex max-md:flex-col justify-center items-start">
+    <UiMainProjectsWrap>
         <SectionTilesStateless />
         <SectionTopics />
-    </div>
+    </UiMainProjectsWrap>
 
     <div class="mt-10">
         <p>This application displays trends in GitHub stars, forks and open issues. More on that in <NuxtLinkExtended always-on to="/about">about</NuxtLinkExtended> page</p>

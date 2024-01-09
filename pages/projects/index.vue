@@ -4,10 +4,10 @@
         <h1>Total {{repositoriesCount ?? '...'}} projects in database</h1>
     </UiPageTitleWrap>
 
-    <div class="flex max-lg:flex-col justify-center items-start">
+    <UiMainProjectsWrap>
         <SectionTilesStateful />
         <SectionTopics />
-    </div>
+    </UiMainProjectsWrap>
 </template>
 
 <script lang="ts" setup>
