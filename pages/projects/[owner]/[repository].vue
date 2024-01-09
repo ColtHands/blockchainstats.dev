@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-between gap-8">
+    <div class="flex justify-between flex-wrap gap-8">
         <div>
             <div class="flex justify-start items-center gap-2">
                 <img :src="imageUrl" class="w-10 h-10" :alt="`{{ name }} logo`" />
@@ -23,14 +23,15 @@
                 <p :title="description" v-html="description"></p>
             </h2>
 
-            <ul class="flex gap-2 justify-start mt-4">
+            <ul class="flex flex-wrap gap-2 justify-start mt-4">
                 <li v-for="topic in topics" :key="topic">
                     <UiTopic :topic="topic" />
                 </li>
             </ul>
         </div>
 
-        <nav class="w-44 flex flex-col gap-2">
+        <!-- Links -->
+        <nav class="w-full lg:w-44 flex flex-col gap-2">
             <RepositoryLinkButton :url="repositoryUrl">
                 <template #icon>
                     <i class="fa-brands fa-github" />
@@ -76,17 +77,17 @@
             </template>
         </RepositoryBarChart>
 
-        <RepositoryIssuesAreaChart :repository-updates="repositoryUpdates">
-            <template #header>
-                <i class="fa-regular fa-circle-dot"></i> Open issues updates
-            </template>
-        </RepositoryIssuesAreaChart>
-
-        <RepositoryForksBarChart :repository-updates="repositoryUpdates">
+        <RepositoryForksBarChart :repository-updates="repositoryUpdates" class="max-lg:col-span-2">
             <template #header>
                 <i class="fa-solid fa-code-fork"></i> Forks updates each month
             </template>
         </RepositoryForksBarChart>
+
+        <RepositoryIssuesAreaChart :repository-updates="repositoryUpdates" class="max-lg:col-span-2">
+            <template #header>
+                <i class="fa-regular fa-circle-dot"></i> Open issues updates
+            </template>
+        </RepositoryIssuesAreaChart>
     </div>
 </template>
 
