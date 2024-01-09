@@ -102,7 +102,8 @@ const fetchRepos = async (rawTopics: unknown) => {
     ) as any
 
     loading.value = false
-    repositories.value = unref(repos)
+    repositories.value = unref(repos).repositories
+    count.value = unref(repos).count
 }
 
 count.value = (await getTopicsCount() as Ref<number>).value

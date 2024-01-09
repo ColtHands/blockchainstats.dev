@@ -6,7 +6,7 @@
             </div>
         </TileWrap>
         <Tile
-            v-for="repository in repositories"
+            v-for="repository in repositories.repositories"
             :key="repository.id"
             :avatar-url="repository.avatar_url"
             :name="repository.repository"
@@ -22,5 +22,5 @@
 </template>
 
 <script lang="ts" setup>
-const repositories = await useApi().getRepositories(true) as any
+const repositories = await useApi().getRepositories(true) as Ref<any>
 </script>
