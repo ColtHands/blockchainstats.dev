@@ -53,9 +53,9 @@
                     :owner="repository.owner"
                     :url="repository._id"
                     :description="repository.coinId.description['en']"
-                    :stars="repository?.growth.week.stars"
-                    :forks="repository?.growth.week.forks"
-                    :open-issues="repository.growth.week.open_issues"
+                    :stars="repository?.growth[timeFrameComputed].stars"
+                    :forks="repository?.growth[timeFrameComputed].forks"
+                    :open-issues="repository.growth[timeFrameComputed].open_issues"
                     :homepage="filterOutEmptyStrings(repository.coinId.links.homepage)[0]"
                     :topics="repository.topics"
                 />
@@ -76,14 +76,14 @@
 <script lang="ts" setup>
 const route = useRoute()
 const { getTopicsCount } = useApi()
-const count = ref(100)
 
-const sortBy = ref('')
+const count: Ref<number> = ref(100)
+const sortBy: Ref<'' | 'stars' | 'forks' | 'open_issues'> = ref('')
 const limit = ref('')
-const timeFrame = ref('')
-const loading = ref(false)
+const timeFrame: Ref<'week' | 'month' | ''> = ref('')
+const loading: Ref<boolean> = ref(false)
 const repositories = ref([]) as Ref<Array<any>>
-const page = ref(1)
+const page: Ref<number> = ref(1)
 
 const limitComputed = unref(computed(() => unref(limit) === '' ? 10 : parseInt(unref(limit))))
 const timeFrameComputed = unref(computed(() => unref(timeFrame) || 'week'))
