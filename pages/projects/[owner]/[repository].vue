@@ -42,7 +42,7 @@
                     <i class="fa-solid fa-house"></i>
                 </template>
             </RepositoryLinkButton>
-            <RepositoryLinkButton :url="twitterUrl">
+            <RepositoryLinkButton v-if="twitterUrl" :url="twitterUrl">
                 <template #icon>
                     <i class="fa-brands fa-x-twitter"></i>
                 </template>
