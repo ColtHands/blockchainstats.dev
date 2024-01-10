@@ -1,6 +1,5 @@
 <template>
     <UiPageTitleWrap>
-        <i class="fa-solid fa-cube max-sm:hidden"></i>
         <h1>{{title}}</h1>
     </UiPageTitleWrap>
 

@@ -2,7 +2,7 @@
     <header class="py-6 w-full backdrop-blur border-b border-cyan-950">
         <div class="sm:container sm:mx-auto px-4 flex justify-between items-center">
             <NuxtLinkExtended class="font-bold text-2xl" :title="runtimeConfig.public.title" to="/">
-                <i class="fa-solid fa-cube"></i> <span class="max-sm:hidden">BDS</span>
+                <i class="fa-solid fa-cube"></i>
             </NuxtLinkExtended>
 
             <HeaderSearchBar class="max-md:hidden md:w-72"></HeaderSearchBar>
