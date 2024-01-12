@@ -1,7 +1,9 @@
 <template>
-    <div>
-        <h2>{{error.statusCode}}</h2>
-        <button @click="handleError">Clear errors</button>
+    <div class="w-full h-full flex justify-center items-center flex-col">
+        <pre class="text-xs w-1/2">{{JSON.stringify(error, null, 2)}}</pre>
+        <button class="hover:underline" @click="handleError">
+            Go to /
+        </button>
     </div>
 </template>
 
