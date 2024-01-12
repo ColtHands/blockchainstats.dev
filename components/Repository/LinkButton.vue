@@ -1,5 +1,6 @@
 <template>
     <UButton
+        v-if="props.url"
         block
         variant="soft"
         color="emerald"
@@ -16,7 +17,7 @@
 
 <script lang="ts" setup>
 type Props = {
-    url: string
+    url: Nullish<string>
 }
 const props = defineProps<Props>()
 </script>

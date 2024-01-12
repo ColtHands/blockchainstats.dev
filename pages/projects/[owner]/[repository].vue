@@ -32,12 +32,12 @@
 
         <!-- Links -->
         <nav class="w-full lg:w-44 flex flex-col gap-2">
-            <RepositoryLinkButton :url="repositoryUrl">
+            <RepositoryLinkButton v-if="repositoryUrl" :url="repositoryUrl">
                 <template #icon>
                     <i class="fa-brands fa-github" />
                 </template>
             </RepositoryLinkButton>
-            <RepositoryLinkButton :url="homepageUrl">
+            <RepositoryLinkButton v-if="homepageUrl" :url="homepageUrl">
                 <template #icon>
                     <i class="fa-solid fa-house"></i>
                 </template>
@@ -47,7 +47,7 @@
                     <i class="fa-brands fa-x-twitter"></i>
                 </template>
             </RepositoryLinkButton>
-            <RepositoryLinkButton :url="subredditUrl">
+            <RepositoryLinkButton v-if="subredditUrl" :url="subredditUrl">
                 <template #icon>
                     <i class="fa-brands fa-reddit-alien"></i>
                 </template>
@@ -105,7 +105,7 @@ const repositories = useNuxtData('repositories')
 const cachedRepositoryData = repositories?.data?.value?.repositories?.find((repo: any) => repo.owner === route.params.owner && repo.repository === route.params.repository)
 const currentRepositoryData = ref(cachedRepositoryData)
 
-if(!cachedRepositoryData) {
+if(!cachedRepositoryData?.coinId?.name) {
     const singleRepository = await getSingleRepository(currentOwner, currentRepository)
     currentRepositoryData.value = ref(singleRepository).value
 }
