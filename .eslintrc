@@ -17,6 +17,7 @@
         "computed": "readonly",
         "watchEffect": "readonly",
         "useSlots": "readonly",
+        "Nullish": "readonly",
         "ref": "readonly"
     },
     "rules": {

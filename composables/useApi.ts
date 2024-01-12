@@ -39,6 +39,14 @@ export default function useApi() {
         return data
     }
 
+    const searchRepositories = async (query: string) => {
+        const { data } = await useFetch('/api/remoteApiProxy/repositories/search', {
+            query: { query }
+        })
+
+        return data
+    }
+
     const getRepositoriesCount = async () => {
         const { data } = await useFetch<number>('/api/remoteApiProxy/count-repositories')
 
@@ -95,6 +103,7 @@ export default function useApi() {
         getRepositoriesCount,
         getSingleRepository,
         getTopicsCount,
+        searchRepositories,
         getRepositoryUpdates
     }
 }

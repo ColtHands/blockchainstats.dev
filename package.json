@@ -7,16 +7,17 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "lint": "yarn eslint --ext .vue,.ts,.js .",
     "typecheck": "yarn nuxi typecheck"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
+    "@nuxt/devtools": "^1.0.8",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "nuxt": "^3.7.1"
   },
   "dependencies": {
     "@coldhands/eslint-config": "^2.1.10",
-    "@nuxt/ui": "^2.11.0",
+    "@nuxt/ui": "^2.12.0",
     "apexcharts": "^3.44.2",
     "autoprefixer": "^10.4.15",
     "eslint": "^8.49.0",
