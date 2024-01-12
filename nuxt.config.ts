@@ -8,6 +8,9 @@ const isDevEnv = process.env.NODE_ENV === 'development'
 const remoteApiUrl = process.env.NUXT_PRIVATE_API_URL
 
 export default defineNuxtConfig({
+    app: {
+        pageTransition: { name: 'page', mode: 'out-in' }
+    },
     devtools: { enabled: isDevEnv },
     modules: [
         '@nuxt/ui',
