@@ -107,6 +107,8 @@ const repositories = useNuxtData('repositories')
 const cachedRepositoryData = repositories?.data?.value?.repositories?.find((repo: any) => repo.owner === route.params.owner && repo.repository === route.params.repository)
 const currentRepositoryData = ref(cachedRepositoryData)
 
+console.log('cachedRepositoryData', cachedRepositoryData)
+
 if(!cachedRepositoryData?.coinId?.name) {
     const singleRepository = await getSingleRepository(currentOwner, currentRepository)
     currentRepositoryData.value = ref(singleRepository).value
@@ -114,6 +116,8 @@ if(!cachedRepositoryData?.coinId?.name) {
 
 /** Array of repository daily updates */
 const repositoryUpdates = await getRepositoryUpdates(currentOwner, currentRepository)
+
+console.log('repositoryUpdates', repositoryUpdates)
 
 const name = computed(() => currentRepositoryData.value.coinId?.name)
 const description = computed(() => currentRepositoryData.value.coinId?.description.en)
@@ -161,6 +165,12 @@ const otherLinks = computed(() => {
 })
 
 const imageUrl = computed(() => currentRepositoryData.value.coinId.image.large)
+
+/** Disabling animations because apex charts bugs-out */
+definePageMeta({
+    pageTransition: false,
+    layoutTransition: false
+})
 </script>
 
 <style lang="sass" scoped>
