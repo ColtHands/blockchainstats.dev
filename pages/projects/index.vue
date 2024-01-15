@@ -4,7 +4,7 @@
             <i class="fa-solid fa-chart-bar"></i>
             <h1>Total {{repositoriesCount ?? '...'}} projects in database</h1>
         </UiPageTitleWrap>
-    
+
         <UiMainProjectsWrap>
             <SectionTilesStateful />
             <SectionTopics />
