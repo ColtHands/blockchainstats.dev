@@ -1,3 +1,5 @@
+![ci](https://github.com/ColtHands/blockchain-developer-stats-frontend/actions/workflows/ci.yml/badge.svg)
+
 # BlockChain Developer Stats
 
 ## Roadmap
