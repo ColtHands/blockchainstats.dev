@@ -2,6 +2,8 @@
 
 # BlockChain Developer Stats
 
+This repository holds frontend for http://blockchainstats.dev/ project.
+
 ## Roadmap
 
 * Add other social/crypto stats
