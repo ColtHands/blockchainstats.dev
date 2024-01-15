@@ -14,7 +14,8 @@ export default defineNuxtConfig({
     devtools: { enabled: isDevEnv },
     modules: [
         '@nuxt/ui',
-        '@nuxtjs/tailwindcss'
+        '@nuxtjs/tailwindcss',
+        '@nuxt/test-utils/module'
     ],
     tailwindcss: {
         cssPath: '~/assets/styles/tailwind.css'

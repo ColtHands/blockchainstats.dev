@@ -22,3 +22,6 @@ jobs:
 
       - name: Typecheck
         run: yarn run typecheck
+
+      - name: Test
+        run: yarn run test run
