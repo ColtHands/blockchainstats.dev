@@ -4,23 +4,23 @@
 
         <UCard>
             <p class="text-xl font-medium">Why does this webapp exist?</p>
-            <p>Cryptocurrency and blockchain world for that matter is still somewhat niche outside of bitcoin and ethereum, but it's here to stay and new developers are building things all of the time.</p>
-            <p>{{title}} webapp exists with a purpose of getting information and patterns.</p>
-            <p>Right now there is not concise way out there of getting information on what cryptocurrency developers build, how much traction (stats) this and that repository is getting.</p>
-            <p>This app can help you get a sense of trends and patterns, which developers are abandoned their project, and who's staying consistent</p>
+            <p>Cryptocurrency and blockchain world for that matter is still somewhat niche outside of Bitcoin and Ethereum, but it's here to stay and new developers are building things all of the time.</p>
+            <p>{{title}} web app exists with the purpose of getting information and patterns.</p>
+            <p>Right now there is no concise way out there of getting information on what cryptocurrency developers build, and how much traction (stats) this and that repository is getting.</p>
+            <p>This app can help you get a sense of trends and patterns, which developers have abandoned their project, and who's staying consistent</p>
 
             <br>
 
             <p class="text-xl font-medium">How it works?</p>
-            <p>Each day a script runs through a list of ~10,000 repositories, gets their data from GitHub API for that day and saves it into timeseries DB</p>
-            <p>The only changes it tracks is: stars, forks and open issues</p>
+            <p>Each day a script runs through a list of ~10,000 repositories, gets their data from GitHub API for that day and saves it into time series DB</p>
+            <p>The only changes it tracks are: stars, forks, and open issues</p>
             <p>And that's what you see on frontend, most starred / forked / issued repositories, this week or month</p>
 
             <br>
 
             <p class="text-xl font-medium">Why just not use GitHub API.</p>
             <p>GitHub API is strong, but it only provides up-to-date information, it doesn't provide historical info.</p>
-            <p>Additionally there's a lot more info to be collected than just GitHub one.</p>
+            <p>Additionally there's a lot more info to be collected than just GitHub API.</p>
 
             <br>
 
@@ -37,7 +37,7 @@
 
             <p class="text-xl font-medium">Found bugs? Have suggestions?</p>
             <p>Open up a new issue in the repository issues <NuxtLinkExtended always-on to="https://github.com/ColtHands/blockchain-developer-stats-frontend/issues/new" target="_blank">here</NuxtLinkExtended>.</p>
-            <p>Feel free to audit the code and post any suggestions to the issues or to my <NuxtLinkExtended always-on to="https://twitter.com/0xColtHands/" target="_blank">twitter (x)</NuxtLinkExtended></p>
+            <p>Feel free to audit the code and post any suggestions to the issues or to my <NuxtLinkExtended always-on to="https://twitter.com/0xColtHands/" target="_blank">Twitter (x)</NuxtLinkExtended></p>
 
             <br>
 
@@ -54,7 +54,7 @@
             <p class="text-xl font-medium">Roadmap</p>
             <p>
                 <ul class="list-disc pl-4">
-                    <li>Add social stats: tweets, reddit, facebook, etc</li>
+                    <li>Add social stats: tweets, Reddit, Facebook, etc</li>
                     <li>Add BE -> FE TypeScript support (generate types)</li>
                     <li>Refactor BackEnd to <code>nitro</code> to support aws lambda</li>
                 </ul>
