@@ -80,23 +80,23 @@ const { getTopicsCount } = useApi()
 const count: Ref<number> = ref(100)
 const sortBy: Ref<'' | 'stars' | 'forks' | 'open_issues'> = ref('')
 const limit = ref('')
-const timeFrame: Ref<'week' | 'month' | ''> = ref('')
+const timeFrame: Ref<'week' | 'month' | ''> = ref('week')
 const loading: Ref<boolean> = ref(false)
 const repositories = ref([]) as Ref<Array<any>>
 const page: Ref<number> = ref(1)
 
-const limitComputed = unref(computed(() => unref(limit) === '' ? 10 : parseInt(unref(limit))))
-const timeFrameComputed = unref(computed(() => unref(timeFrame) || 'week'))
-const sortByComputed = unref(computed(() => unref(sortBy) || 'stars'))
+const limitComputed = computed(() => limit.value === '' ? 10 : parseInt(limit.value))
+const timeFrameComputed = computed(() => timeFrame.value || 'week')
+const sortByComputed = computed(() => sortBy.value || 'stars')
 
 const fetchRepos = async (rawTopics: unknown) => {
     loading.value = true
 
     const repos = await useApi().getRepositories(
         true,
-        limitComputed,
-        timeFrameComputed,
-        sortByComputed,
+        unref(limitComputed),
+        unref(timeFrameComputed),
+        unref(sortByComputed),
         unref(page),
         rawTopics
     ) as any
