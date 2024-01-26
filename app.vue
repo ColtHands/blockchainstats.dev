@@ -12,6 +12,9 @@ const runtimeConfig = useRuntimeConfig()
 
 useHead({
     title: runtimeConfig.public.title,
+    htmlAttrs: {
+        lang: 'en'
+    },
     meta: [
         {
             hid: 'description',
