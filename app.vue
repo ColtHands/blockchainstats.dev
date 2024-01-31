@@ -20,6 +20,30 @@ useHead({
             hid: 'description',
             name: 'description',
             content: runtimeConfig.public.title
+        },
+        {
+            property: 'og:title',
+            content: 'Blockchain Developer Stats'
+        },
+        {
+            property: 'og:description',
+            content: 'An app that tracks stars, forks, issues on github blockchain repos'
+        },
+        {
+            property: 'og:image',
+            content: '/preview.jpg'
+        },
+        {
+            property: 'og:image:secure_url',
+            content: '/preview.jpg'
+        },
+        {
+            property: 'og:image:height',
+            content: '667'
+        },
+        {
+            property: 'og:image:width',
+            content: '1280'
         }
     ],
     link: [
