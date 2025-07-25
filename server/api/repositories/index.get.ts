@@ -1,5 +1,5 @@
-import { Coin, Repository } from '../db/models.ts'
-import { useMongooseClient } from '../db/useMongooseClient.ts'
+import { Coin, Repository } from '~/server/db/models.ts'
+import { useMongooseClient } from '~/server/db/useMongooseClient.ts'
 
 export const timeFrameValues = ['day', 'week', 'month', 'year'] as const
 const sortByValues = ['stars', 'forks', 'subscribers', 'open_issues', 'issues'] as const

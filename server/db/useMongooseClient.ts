@@ -1,10 +1,20 @@
 import mongoose from 'mongoose'
 import { mongoConnectUrlWithDb } from './config'
 
-export async function useMongooseClient<T>(callback: () => Promise<T>): Promise<T> {
-    const connection = await mongoose.connect(mongoConnectUrlWithDb)
-    const result = await callback()
-    await connection.disconnect()
+let isConnected = false
 
-    return result
+export async function useMongooseClient<T>(callback: () => Promise<T>): Promise<T> {
+    if(!isConnected) {
+        await mongoose.connect(mongoConnectUrlWithDb)
+        isConnected = true
+        console.log('MongoDB connected')
+    }
+
+    try {
+        const result = await callback()
+        return result
+    } catch (error) {
+        console.error('Error during database operation:', error)
+        throw error
+    }
 }

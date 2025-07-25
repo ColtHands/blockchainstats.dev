@@ -41,7 +41,7 @@ export default function useApi() {
     }
 
     const searchRepositories = async (query: string) => {
-        const { data } = await useFetch('/api/remoteApiProxy/repositories/search', {
+        const { data } = await useFetch('/api/repositories/search', {
             query: { query }
         })
 
@@ -49,15 +49,17 @@ export default function useApi() {
     }
 
     const getRepositoriesCount = async () => {
-        const { data } = await useFetch<number>('/api/remoteApiProxy/count-repositories')
+        const { data } = await useFetch<number>('/api/repositories/count')
 
         return data
     }
 
     const getRepositoryUpdates = async (owner: string, repository: string) => {
-        const { data } = await useFetch(`/api/remoteApiProxy/get-repository-updates/${owner}/${repository}`, {
+        const { data } = await useFetch('/api/updates', {
             query: {
-                timeFrame: 'month'
+                timeFrame: 'month',
+                owner,
+                repository
             }
         })
 
@@ -78,7 +80,7 @@ export default function useApi() {
     }
 
     const getTopics = async (limit = 20, offset = 0) => {
-        const { data } = await useFetch('/api/remoteApiProxy/topics', {
+        const { data } = await useFetch('/api/topics', {
             key: 'topics',
             query: {
                 limit,
@@ -91,7 +93,7 @@ export default function useApi() {
     }
 
     const getTopicsCount = async () => {
-        const { data } = await useFetch('/api/remoteApiProxy/topics/count', {
+        const { data } = await useFetch('/api/topics/count', {
             key: 'topicsCount'
         })
 
