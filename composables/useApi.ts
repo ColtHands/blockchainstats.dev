@@ -10,6 +10,7 @@ export default function useApi() {
         page?: number,
         topics?: unknown
     ) => Promise<unknown>
+
     const getRepositories: GetRepositoriesFn = async (
         includeCoinData = false,
         limit = 10,
@@ -31,7 +32,7 @@ export default function useApi() {
             query['topics'] = topics
         }
 
-        const { data } = await useFetch('/api/remoteApiProxy/get-repositories', {
+        const { data } = await useFetch('/api/repositories', {
             key: 'repositories',
             query
         })
@@ -64,7 +65,7 @@ export default function useApi() {
     }
 
     const getSingleRepository = async (owner: string, repository: string) => {
-        const { data } = await useFetch('/api/remoteApiProxy/get-single-repository', {
+        const { data } = await useFetch('/api/repository', {
             key: `${owner}/${repository}`,
             query: {
                 owner,

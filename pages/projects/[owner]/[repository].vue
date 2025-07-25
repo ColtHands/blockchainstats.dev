@@ -117,8 +117,6 @@ if(!cachedRepositoryData?.coinId?.name) {
 /** Array of repository daily updates */
 const repositoryUpdates = await getRepositoryUpdates(currentOwner, currentRepository)
 
-console.log('repositoryUpdates', repositoryUpdates)
-
 const name = computed(() => currentRepositoryData.value.coinId?.name)
 const description = computed(() => currentRepositoryData.value.coinId?.description.en)
 const gitDescription = computed(() => currentRepositoryData.value.description)
