@@ -17,7 +17,7 @@ useHead({
     },
     meta: [
         {
-            hid: 'description',
+            id: 'description',
             name: 'description',
             content: runtimeConfig.public.title
         },
