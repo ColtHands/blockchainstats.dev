@@ -7,9 +7,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "yarn eslint --ext .vue,.ts,.js .",
-    "test": "yarn vitest",
-    "typecheck": "yarn nuxi typecheck"
+    "lint": "pnpm eslint --ext .vue,.ts,.js .",
+    "test": "pnpm vitest",
+    "typecheck": "pnpm nuxi typecheck"
   },
   "engines": {
     "node": ">=20.9.0"
