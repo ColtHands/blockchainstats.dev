@@ -39,4 +39,4 @@ export default defineNuxtConfig({
             }
         }
     }
-} satisfies NuxtConfigExtended)
+} as NuxtConfigExtended)

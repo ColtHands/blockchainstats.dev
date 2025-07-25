@@ -34,7 +34,7 @@ export default {
             loading.value = true
             const result = await searchRepositories(query)
             loading.value = false
-            return result.value.length ? unref(result) : []
+            return result.value?.length ? unref(result)! : []
         }
 
         return {
