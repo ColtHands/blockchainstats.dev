@@ -1,6 +1,7 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -22,14 +23,14 @@
     "happy-dom": "^13.1.4",
     "nuxt": "^3.7.1",
     "playwright-core": "^1.40.1",
-    "vitest": "^1.2.0"
+    "vitest": "^1.2.0",
+    "@coldhands/eslint-config": "^3.0.2"
   },
   "dependencies": {
-    "@coldhands/eslint-config": "^2.2.0",
     "@nuxt/ui": "^2.12.0",
     "apexcharts": "^3.44.2",
     "autoprefixer": "^10.4.15",
-    "eslint": "^8.49.0",
+    "eslint": "^9.32.0",
     "mongoose": "^7.2.2",
     "postcss": "^8.4.29",
     "posthog-js": "^1.98.1",
